@@ -1,23 +1,47 @@
 # website — 拓殖大学電気自動車同好会 (TAKUDEN) 公式サイト
 
-Jimdo（[takuden.jimdofree.com](https://takuden.jimdofree.com/)）で運用している公式サイトの
-HTMLコード置き場です。
+Jimdo（[takuden.jimdofree.com](https://takuden.jimdofree.com/)）で運用している公式サイトのコード置き場です。
+
+**方式**: サイト本体のコードはこのリポジトリに置き、**GitHub Pages** で配信します。
+Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `takuden.js` を読み込みます。
+→ **更新はこのリポジトリを編集して `git push` するだけ**（数分でサイトに反映。Jimdoは触らない）。
 
 ## 構成
 
 | パス | 内容 |
 |------|------|
-| `jimdo-top/takuden.html` | トップページ用ウィジェット。Jimdoの「HTML」ブロックに中身を丸ごと貼り付けて使う |
+| `jimdo-top/takuden.js` | **本体**（CSS＋HTML＋動作を全部内包）。`#takuden-root` に描画する。ここだけ編集すればよい |
+| `jimdo-top/preview.html` | ローカル確認用。ブラウザで開くと本番と同じ描画になる |
 
-## 使い方（Jimdoへ反映）
+## Jimdoに貼るコード（トップページのHTMLブロック）
 
-1. Jimdo管理メニュー → 対象ページの「HTML」ブロックを編集
-2. 中身を全消しして `jimdo-top/takuden.html` の中身を全部貼り付け
-3. 保存 → プレビューで確認
+これ**だけ**を貼る（一度貼れば以後は貼り替え不要）:
 
-## メモ
+```html
+<div id="takuden-root"></div>
+<script src="https://takuden-formula.github.io/website/jimdo-top/takuden.js"></script>
+```
 
-- Tailwindには依存しない自己完結CSS（`#takuden-wrapper` スコープでJimdo側CSSに上書きされない設計）
+## 更新の流れ
+
+1. `jimdo-top/takuden.js` を編集
+2. `git commit` → `git push`
+3. 1〜数分後、GitHub Pagesがビルドしサイトに自動反映（Jimdoの再貼り付けは不要）
+
+> 反映されないときはブラウザのスーパーリロード（Ctrl+F5）でキャッシュを更新。
+
+## ローカルで確認
+
+```
+cd jimdo-top
+python -m http.server 8000
+# → http://localhost:8000/preview.html
+```
+
+## メモ（設計上の要点）
+
+- **Jimdoは静的な `<style>` を削除する**ため、CSSは `takuden.js` 内から動的注入している。詳細は個人メモ参照。
+- Tailwind非依存の自己完結CSS（`#takuden-wrapper` スコープでJimdo側CSSに上書きされない）
 - アクセント色はネオンオレンジ `#FF6B00`
 - 画像はJimdoのCDN（`image.jimcdn.com`）を参照
-- Instagramフィードは POWR ウィジェット（`powr.js`）を使用
+- Instagramフィードは POWR ウィジェット（`powr.js`）を `takuden.js` から動的読み込み
