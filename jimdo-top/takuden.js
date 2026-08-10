@@ -210,8 +210,8 @@
 #takuden-wrapper .tk-card{background:var(--tk-bg);border:1px solid var(--tk-border);border-radius:var(--tk-radius);padding:clamp(26px,4vw,44px);text-align:left;box-shadow:0 12px 30px rgba(15,23,42,.05);transition:.4s;}
 #takuden-wrapper .tk-card:hover{border-color:var(--tk-orange);transform:translateY(-8px);box-shadow:0 22px 44px rgba(15,23,42,.12);}
 #takuden-wrapper .tk-card svg{width:52px;height:52px;color:var(--tk-orange);margin-bottom:20px;}
-#takuden-wrapper .tk-card h4{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:900;font-style:italic;letter-spacing:-.02em;margin-bottom:14px;}
-#takuden-wrapper .tk-card p{color:var(--tk-slate-soft);font-size:1rem;line-height:1.75;}
+#takuden-wrapper .tk-card h4{font-size:clamp(2rem,3.4vw,2.8rem);font-weight:900;font-style:italic;letter-spacing:-.02em;margin-bottom:16px;}
+#takuden-wrapper .tk-card p{color:var(--tk-slate-soft);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.8;}
 #takuden-wrapper .tk-activities{padding:clamp(70px,11vw,140px) 0;background:var(--tk-bg-alt);}
 #takuden-wrapper .tk-act-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:clamp(64px,9vw,110px);}
 #takuden-wrapper .tk-act-text{min-width:0;}
@@ -226,6 +226,8 @@
 #takuden-wrapper .tk-slider::-webkit-scrollbar{display:none;}
 #takuden-wrapper .tk-slide{min-width:100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;}
 #takuden-wrapper .tk-slide img{max-width:100%;max-height:clamp(320px,40vw,600px);width:auto;height:auto;border-radius:calc(var(--tk-radius) - .6rem);border:3px solid var(--tk-border);box-shadow:0 16px 36px rgba(15,23,42,.14);background:#eef1f4;}
+#takuden-wrapper.tk-js .tk-slide img{opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform .7s ease;}
+#takuden-wrapper.tk-js .tk-slide img.tk-loaded{opacity:1;transform:none;}
 #takuden-wrapper .tk-dots{display:flex;gap:8px;justify-content:center;margin-top:14px;}
 #takuden-wrapper .tk-dots button{width:8px;height:8px;border-radius:999px;border:0;background:var(--tk-border);cursor:pointer;padding:0;transition:.3s;}
 #takuden-wrapper .tk-dots button.tk-on{background:var(--tk-orange);width:24px;}
@@ -264,7 +266,7 @@
   #takuden-wrapper .tk-sns-grid{grid-template-columns:1fr;gap:36px;}
   #takuden-wrapper .tk-nav.tk-open{display:flex;flex-direction:column;gap:20px;position:absolute;top:100%;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:26px 38px;border-radius:0 0 0 22px;box-shadow:0 20px 40px rgba(15,23,42,.12);text-align:right;}
 }
-@media (prefers-reduced-motion:reduce){#takuden-wrapper.tk-js .tk-reveal{opacity:1;transform:none;transition:none;}}`;
+@media (prefers-reduced-motion:reduce){#takuden-wrapper.tk-js .tk-reveal,#takuden-wrapper.tk-js .tk-slide img{opacity:1;transform:none;transition:none;}}`;
 
   /* ---------------- 描画 ---------------- */
   function build() {
@@ -333,6 +335,15 @@
         a.addEventListener("click", function () { nav.classList.remove("tk-open"); burger.setAttribute("aria-expanded", "false"); });
       });
     }
+
+    // 写真の滑らかな表示（読み込み完了でフェード＆ズームイン）
+    root.querySelectorAll(".tk-slide img").forEach(function (img) {
+      if (img.complete && img.naturalWidth) { img.classList.add("tk-loaded"); }
+      else {
+        img.addEventListener("load", function () { img.classList.add("tk-loaded"); });
+        img.addEventListener("error", function () { img.classList.add("tk-loaded"); });
+      }
+    });
 
     root.querySelectorAll(".tk-slider").forEach(function (slider) {
       var slides = slider.querySelectorAll(".tk-slide");
