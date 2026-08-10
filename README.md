@@ -10,8 +10,10 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 
 | パス | 内容 |
 |------|------|
-| `jimdo-top/takuden.js` | **本体**（CSS＋HTML＋動作を全部内包）。`#takuden-root` に描画する。ここだけ編集すればよい |
-| `jimdo-top/preview.html` | ローカル確認用。ブラウザで開くと本番と同じ描画になる |
+| `jimdo-top/takuden.js` | **トップページ本体**（CSS＋HTML＋動作を全部内包）。`#takuden-root` に描画 |
+| `jimdo-top/preview.html` | トップページのローカル確認用 |
+| `fsaej/fsaej.js` | **「What's FSAEJ?」ページ本体**。`#fsaej-root` に描画 |
+| `fsaej/preview.html` | FSAEJページのローカル確認用 |
 
 ## Jimdoに貼るコード（トップページのHTMLブロック）
 
@@ -26,6 +28,15 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 
 > `?v='+Date.now()` を付けることで、ブラウザキャッシュを毎回回避し**更新が常に即反映**される。
 > （キャッシュを効かせたい運用に切り替えたくなったら、`?v=` を固定番号にして更新時だけ数字を上げる方式でもよい）
+
+## Jimdoに貼るコード（What's FSAEJ? ページのHTMLブロック）
+
+```html
+<div id="fsaej-root"></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/fsaej/fsaej.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
+```
 
 ## 更新の流れ
 
