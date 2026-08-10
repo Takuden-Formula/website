@@ -178,13 +178,13 @@
 
   /* ---------------- CSS（#takuden-wrapper スコープ） ---------------- */
   var CSS = `
-#takuden-wrapper{--tk-orange:#FF6B00;--tk-orange-soft:rgba(255,107,0,.45);--tk-ink:#0f172a;--tk-slate:#475569;--tk-slate-soft:#64748b;--tk-bg:#fff;--tk-bg-alt:#f6f7f9;--tk-border:#e2e8f0;--tk-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--tk-ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+#takuden-wrapper{--tk-orange:#FF6B00;--tk-orange-soft:rgba(255,107,0,.45);--tk-ink:#0f172a;--tk-slate:#475569;--tk-slate-soft:#64748b;--tk-bg:#fff;--tk-bg-alt:#f6f7f9;--tk-border:#e2e8f0;--tk-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--tk-ink);line-height:1.6;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
 #takuden-wrapper *{box-sizing:border-box;}
 #takuden-wrapper h2,#takuden-wrapper h3,#takuden-wrapper h4,#takuden-wrapper p{margin:0;padding:0;}
 #takuden-wrapper a{color:inherit;text-decoration:none;}
 #takuden-wrapper img{display:block;max-width:100%;}
 #takuden-wrapper section{scroll-margin-top:90px;}
-#takuden-wrapper .tk-wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+#takuden-wrapper .tk-wrap{max-width:1320px;margin:0 auto;padding:0 clamp(24px,4vw,56px);}
 #takuden-wrapper .tk-label{display:block;font-size:.8rem;font-weight:900;letter-spacing:.4em;text-transform:uppercase;color:var(--tk-orange);}
 #takuden-wrapper .tk-section-label{text-align:center;margin-bottom:clamp(40px,6vw,80px);}
 #takuden-wrapper .tk-display{font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1.02;color:var(--tk-ink);}
@@ -225,7 +225,7 @@
 #takuden-wrapper .tk-slider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:var(--tk-radius);scrollbar-width:none;-ms-overflow-style:none;}
 #takuden-wrapper .tk-slider::-webkit-scrollbar{display:none;}
 #takuden-wrapper .tk-slide{min-width:100%;scroll-snap-align:center;}
-#takuden-wrapper .tk-slide img{width:100%;height:clamp(200px,30vw,380px);object-fit:cover;border-radius:calc(var(--tk-radius) - .6rem);border:3px solid var(--tk-border);box-shadow:0 16px 36px rgba(15,23,42,.14);background:#eef1f4;}
+#takuden-wrapper .tk-slide img{width:100%;height:clamp(200px,28vw,420px);object-fit:cover;border-radius:calc(var(--tk-radius) - .6rem);border:3px solid var(--tk-border);box-shadow:0 16px 36px rgba(15,23,42,.14);background:#eef1f4;}
 #takuden-wrapper .tk-dots{display:flex;gap:8px;justify-content:center;margin-top:14px;}
 #takuden-wrapper .tk-dots button{width:8px;height:8px;border-radius:999px;border:0;background:var(--tk-border);cursor:pointer;padding:0;transition:.3s;}
 #takuden-wrapper .tk-dots button.tk-on{background:var(--tk-orange);width:24px;}
