@@ -19,8 +19,13 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 
 ```html
 <div id="takuden-root"></div>
-<script src="https://takuden-formula.github.io/website/jimdo-top/takuden.js"></script>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/jimdo-top/takuden.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
 ```
+
+> `?v='+Date.now()` を付けることで、ブラウザキャッシュを毎回回避し**更新が常に即反映**される。
+> （キャッシュを効かせたい運用に切り替えたくなったら、`?v=` を固定番号にして更新時だけ数字を上げる方式でもよい）
 
 ## 更新の流れ
 
