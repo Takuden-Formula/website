@@ -129,7 +129,7 @@
           <p>多くのスポンサー企業様からの温かいご支援。技術指導を通じた交流は、次世代エンジニアにとって最高の成長の場です。</p>
         </div>
         <div class="tk-act-media"><div class="tk-slider">
-          <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子1" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i28773fc6927f9c29/version/1766762591/image.jpg"></div>
+          <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子1" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=180/path/s526a7478a3a00671/image/i28773fc6927f9c29/version/1766762591/image.jpg"></div>
           <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子2" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=png/path/s526a7478a3a00671/image/i89b009d85d7d19c2/version/1766899512/image.png"></div>
         </div></div>
       </div>
