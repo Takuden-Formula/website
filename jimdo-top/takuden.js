@@ -15,6 +15,7 @@
   <header class="tk-header" id="tk-header">
     <a href="#top" class="tk-logo">TAKU<span class="tk-accent">DEN</span></a>
     <nav class="tk-nav" id="tk-nav" aria-label="メインナビゲーション">
+      <a href="#showcase">Machine</a>
       <a href="#mission">Mission</a>
       <a href="#activities">Activities</a>
       <a href="#social">Latest News</a>
@@ -27,6 +28,18 @@
   </header>
 
   <span id="top"></span>
+
+  <section id="showcase" class="tk-showcase">
+    <div class="tk-wrap">
+      <div class="tk-reveal">
+        <h2 class="tk-label">TAKUDEN Formula 2025</h2>
+        <h3 class="tk-display tk-showcase-h">2025年式マシンを<br>3Dで観る</h3>
+      </div>
+      <div class="tk-viewer tk-reveal">
+        <iframe src="https://salt6004.github.io/takuden-formula-2025/viewer.html" loading="lazy" allowfullscreen title="TAKUDENフォーミュラ2025 3Dビューアー"></iframe>
+      </div>
+    </div>
+  </section>
 
   <section id="mission" class="tk-hero">
     <div class="tk-wrap">
@@ -187,7 +200,11 @@
 #takuden-wrapper .tk-cta:hover,#takuden-wrapper .tk-cta:focus-visible{background:var(--tk-ink);color:#fff;border-color:var(--tk-ink);}
 #takuden-wrapper .tk-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;}
 #takuden-wrapper .tk-burger span{display:block;width:26px;height:2px;background:var(--tk-ink);margin:5px 0;transition:.3s;}
-#takuden-wrapper .tk-hero{padding:clamp(120px,18vw,210px) 0 clamp(70px,10vw,120px);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:38px 38px;text-align:center;}
+#takuden-wrapper .tk-showcase{padding:clamp(110px,16vw,190px) 0 clamp(50px,8vw,90px);text-align:center;}
+#takuden-wrapper .tk-showcase-h{font-size:clamp(2.1rem,6vw,4.4rem);margin:16px auto 0;max-width:18ch;}
+#takuden-wrapper .tk-viewer{position:relative;width:100%;max-width:1000px;aspect-ratio:16/10;margin:clamp(28px,4vw,48px) auto 0;border-radius:calc(var(--tk-radius) - .6rem);overflow:hidden;border:3px solid var(--tk-border);box-shadow:0 18px 44px rgba(15,23,42,.16);background:#eef1f4;-webkit-overflow-scrolling:touch;}
+#takuden-wrapper .tk-viewer iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;}
+#takuden-wrapper .tk-hero{padding:clamp(56px,9vw,110px) 0 clamp(70px,10vw,120px);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:38px 38px;text-align:center;}
 #takuden-wrapper .tk-hero-h{font-size:clamp(2.6rem,8vw,6.5rem);margin:18px auto 0;max-width:14ch;}
 #takuden-wrapper .tk-mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:clamp(52px,8vw,100px);}
 #takuden-wrapper .tk-card{background:var(--tk-bg);border:1px solid var(--tk-border);border-radius:var(--tk-radius);padding:clamp(26px,4vw,44px);text-align:left;box-shadow:0 12px 30px rgba(15,23,42,.05);transition:.4s;}
@@ -242,6 +259,7 @@
   #takuden-wrapper .tk-act-row{grid-template-columns:1fr;}
   #takuden-wrapper .tk-act-row.tk-flip .tk-act-text,#takuden-wrapper .tk-act-row.tk-flip .tk-act-media,#takuden-wrapper .tk-act-row .tk-act-media{order:0;}
   #takuden-wrapper .tk-act-media{max-width:640px;margin:0 auto;}
+  #takuden-wrapper .tk-viewer{aspect-ratio:4/3;}
   #takuden-wrapper .tk-slide img{height:clamp(200px,56vw,360px);}
   #takuden-wrapper .tk-sns-grid{grid-template-columns:1fr;gap:36px;}
   #takuden-wrapper .tk-nav.tk-open{display:flex;flex-direction:column;gap:20px;position:absolute;top:100%;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:26px 38px;border-radius:0 0 0 22px;box-shadow:0 20px 40px rgba(15,23,42,.12);text-align:right;}
