@@ -184,7 +184,7 @@
 #takuden-wrapper a{color:inherit;text-decoration:none;}
 #takuden-wrapper img{display:block;max-width:100%;}
 #takuden-wrapper section{scroll-margin-top:90px;}
-#takuden-wrapper .tk-wrap{max-width:1320px;margin:0 auto;padding:0 clamp(24px,4vw,56px);}
+#takuden-wrapper .tk-wrap{width:95%;max-width:1800px;margin:0 auto;padding:0;}
 #takuden-wrapper .tk-label{display:block;font-size:.8rem;font-weight:900;letter-spacing:.4em;text-transform:uppercase;color:var(--tk-orange);}
 #takuden-wrapper .tk-section-label{text-align:center;margin-bottom:clamp(40px,6vw,80px);}
 #takuden-wrapper .tk-display{font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1.02;color:var(--tk-ink);}
