@@ -139,6 +139,8 @@
           <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子1" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=180/path/s526a7478a3a00671/image/i28773fc6927f9c29/version/1766762591/image.jpg"></div>
           <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子2" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=png/path/s526a7478a3a00671/image/i89b009d85d7d19c2/version/1766899512/image.png"></div>
             <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子3" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i55a1cdc3581a5b5a/version/1786381229/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子4" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/ifd454fa454e79cac/version/1786422413/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="スポンサー交流の様子5" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/ic70ea485000c65b0/version/1786422418/image.jpg"></div>
         </div></div>
       </div>
 
