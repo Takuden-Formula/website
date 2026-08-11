@@ -16,6 +16,8 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `fsaej/preview.html` | FSAEJページのローカル確認用 |
 | `joinus/joinus.js` | **「Join Us」ページ本体**。`#joinus-root` に描画 |
 | `joinus/preview.html` | Join Usページのローカル確認用 |
+| `contact/contact.js` | **「Contact」ページ本体（公式SNS）**。`#contact-root` に描画 |
+| `contact/preview.html` | Contactページのローカル確認用 |
 
 ## Jimdoに貼るコード（トップページのHTMLブロック）
 
@@ -46,6 +48,15 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 <div id="joinus-root"></div>
 <script>
 (function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/joinus/joinus.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
+```
+
+## Jimdoに貼るコード（Contact ページのHTMLブロック）
+
+```html
+<div id="contact-root"></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/contact/contact.js?v='+Date.now();document.head.appendChild(s);})();
 </script>
 ```
 
