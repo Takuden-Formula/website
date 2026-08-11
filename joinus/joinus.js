@@ -190,7 +190,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 
 /* machine image */
 #joinus-wrapper .j-machine{max-width:1400px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(22px,5vw,48px);}
-#joinus-wrapper .j-machine img{width:100%;height:clamp(240px,42vw,540px);object-fit:cover;border-radius:var(--j-radius);box-shadow:0 30px 70px rgba(15,23,42,.22);background:#eef1f4;}
+#joinus-wrapper .j-machine img{width:100%;height:auto;border-radius:var(--j-radius);box-shadow:0 30px 70px rgba(15,23,42,.22);background:#eef1f4;}
 
 /* sections */
 #joinus-wrapper .j-section{padding:clamp(72px,11vw,150px) 0;background:var(--j-bg);}
