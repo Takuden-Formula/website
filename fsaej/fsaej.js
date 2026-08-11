@@ -49,8 +49,8 @@
       <div class="f-reveal"><span class="f-eyebrow-ink">Scoring</span><h2 class="f-h2">1000点で競う、総合力。</h2></div>
       <div class="f-score f-reveal">
         <div class="f-score-bar">
-          <div class="f-seg f-seg-static" style="flex:325"><span>静的審査</span><b>325</b></div>
-          <div class="f-seg f-seg-dynamic" style="flex:675"><span>動的審査</span><b>675</b></div>
+          <div class="f-seg f-seg-static" style="flex:325"><span>静的審査</span><b class="f-count">325</b></div>
+          <div class="f-seg f-seg-dynamic" style="flex:675"><span>動的審査</span><b class="f-count">675</b></div>
         </div>
         <p class="f-score-note"><strong>合計1000点満点。</strong>さらに <b>車検（Technical Inspection）</b> の合格が、すべての走行審査に進むための前提条件です。</p>
       </div>
@@ -63,7 +63,7 @@
       <div class="f-reveal"><span class="f-eyebrow-ink">Competition</span><h2 class="f-h2">3つの審査で、実力を証明</h2></div>
       <div class="f-panels">
         <div class="f-panel f-reveal">
-          <div class="f-panel-head"><div class="f-panel-icon">📋</div><h3 class="f-panel-title">静的審査</h3><span class="f-panel-total">325<small>pt</small></span></div>
+          <div class="f-panel-head"><div class="f-panel-icon">📋</div><h3 class="f-panel-title">静的審査</h3><span class="f-panel-total"><span class="f-count">325</span><small>pt</small></span></div>
           <div class="f-rows">
             <div class="f-row"><span class="f-row-name">デザイン審査<small>設計の論理性を現役エンジニアと議論</small></span><b class="f-row-pt">150</b></div>
             <div class="f-row"><span class="f-row-name">コスト審査<small>ネジ一本まで。量産を想定した製造性</small></span><b class="f-row-pt">100</b></div>
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="f-panel f-reveal">
-          <div class="f-panel-head"><div class="f-panel-icon">🏁</div><h3 class="f-panel-title">動的審査</h3><span class="f-panel-total">675<small>pt</small></span></div>
+          <div class="f-panel-head"><div class="f-panel-icon">🏁</div><h3 class="f-panel-title">動的審査</h3><span class="f-panel-total"><span class="f-count">675</span><small>pt</small></span></div>
           <div class="f-rows">
             <div class="f-row"><span class="f-row-name">アクセラレーション<small>75m 加速</small></span><b class="f-row-pt">100</b></div>
             <div class="f-row"><span class="f-row-name">スキッドパッド<small>定常円旋回</small></span><b class="f-row-pt">75</b></div>
@@ -236,8 +236,9 @@ html,body{overflow-x:hidden;max-width:100%;}
 #fsaej-wrapper .f-cta-btn:hover,#fsaej-wrapper .f-cta-btn:focus-visible{transform:translateY(-3px);box-shadow:0 20px 44px rgba(0,0,0,.32);}
 
 /* reveal */
-#fsaej-wrapper.f-js .f-reveal{opacity:0;transform:translateY(38px);transition:opacity .8s ease-out,transform .8s ease-out;}
+#fsaej-wrapper.f-js .f-reveal{opacity:0;transform:translateY(42px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
 #fsaej-wrapper.f-js .f-reveal.f-in{opacity:1;transform:none;}
+#fsaej-wrapper .f-section,#fsaej-wrapper .f-ev,#fsaej-wrapper .f-cta{content-visibility:auto;contain-intrinsic-size:auto 800px;}
 #fsaej-wrapper a:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:8px;}
 
 /* responsive */
@@ -276,12 +277,44 @@ html,body{overflow-x:hidden;max-width:100%;}
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var reveals = root.querySelectorAll(".f-reveal");
     root.classList.add("f-js");
-    var showAll = function () { reveals.forEach(function (el) { el.classList.add("f-in"); }); };
+
+    // カウントアップ（数字が0→本来の値へ）
+    var countUp = function (el) {
+      if (el.__done) return; el.__done = true;
+      var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+      if (reduce) { el.textContent = to.toLocaleString(); return; }
+      var start = null, dur = 1100;
+      // 保険：rAFが止まっても最終値は必ず表示
+      var fallback = setTimeout(function () { el.textContent = to.toLocaleString(); }, dur + 500);
+      var tick = function (now) {
+        if (start === null) start = now;
+        var p = Math.min((now - start) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * e).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+        else clearTimeout(fallback);
+      };
+      requestAnimationFrame(tick);
+    };
+    var counts = root.querySelectorAll(".f-count");
+    counts.forEach(function (el) { el.setAttribute("data-to", el.textContent.replace(/[^0-9]/g, "")); if (!reduce) el.textContent = "0"; });
+
+    // カスケード（同じ親の連続要素を少し遅らせる）
+    if (!reduce) {
+      reveals.forEach(function (el) {
+        var i = 0, s = el.previousElementSibling;
+        while (s) { if (s.classList && s.classList.contains("f-reveal")) i++; s = s.previousElementSibling; }
+        if (i) el.style.transitionDelay = Math.min(i * 0.09, 0.36) + "s";
+      });
+    }
+
+    var reveal = function (el) { el.classList.add("f-in"); el.querySelectorAll(".f-count").forEach(countUp); };
+    var showAll = function () { reveals.forEach(reveal); };
     if (reduce) {
       showAll();
     } else if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("f-in"); io.unobserve(e.target); } });
+        entries.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
       }, { threshold: 0.12 });
       reveals.forEach(function (el) { io.observe(el); });
       setTimeout(function () { if (!root.querySelector(".f-reveal.f-in")) { if (io.disconnect) io.disconnect(); showAll(); } }, 2500);

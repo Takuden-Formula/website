@@ -178,6 +178,7 @@
 
   /* ---------------- CSS（#takuden-wrapper スコープ） ---------------- */
   var CSS = `
+html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper{--tk-orange:#FF6B00;--tk-orange-soft:rgba(255,107,0,.45);--tk-ink:#0f172a;--tk-slate:#475569;--tk-slate-soft:#64748b;--tk-bg:#fff;--tk-bg-alt:#f6f7f9;--tk-border:#e2e8f0;--tk-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--tk-ink);line-height:1.6;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
 #takuden-wrapper *{box-sizing:border-box;}
 #takuden-wrapper h2,#takuden-wrapper h3,#takuden-wrapper h4,#takuden-wrapper p{margin:0;padding:0;}
@@ -251,8 +252,9 @@
 #takuden-wrapper .tk-contact-sns a:hover{transform:scale(1.15);}
 #takuden-wrapper .tk-contact-sns img{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(15,23,42,.12));}
 #takuden-wrapper .tk-footer{padding:52px 24px;border-top:1px solid var(--tk-border);text-align:center;color:var(--tk-slate-soft);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;}
-#takuden-wrapper.tk-js .tk-reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease-out,transform .9s ease-out;}
+#takuden-wrapper.tk-js .tk-reveal{opacity:0;transform:translateY(42px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
 #takuden-wrapper.tk-js .tk-reveal.tk-in{opacity:1;transform:none;}
+#takuden-wrapper .tk-activities,#takuden-wrapper .tk-social,#takuden-wrapper .tk-contact{content-visibility:auto;contain-intrinsic-size:auto 900px;}
 #takuden-wrapper a:focus-visible,#takuden-wrapper button:focus-visible{outline:3px solid var(--tk-orange);outline-offset:3px;border-radius:6px;}
 @media (max-width:900px){
   #takuden-wrapper .tk-nav{display:none;}
@@ -288,12 +290,22 @@
     var root = document.getElementById("takuden-wrapper");
     if (!root) return;
 
-    // POWR（Instagramフィード）読み込み
-    if (!document.querySelector('script[src*="powr.io/powr.js"]')) {
+    // POWR（Instagramフィード）は画面に近づいてから読み込む＝初期表示を軽く
+    var powrMount = root.querySelector(".tk-powr");
+    var loadPowr = function () {
+      if (document.querySelector('script[src*="powr.io/powr.js"]')) return;
       var p = document.createElement("script");
       p.src = "https://www.powr.io/powr.js?platform=jimdo";
       p.async = true;
       document.body.appendChild(p);
+    };
+    if (powrMount && "IntersectionObserver" in window) {
+      var po = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { loadPowr(); po.disconnect(); } });
+      }, { rootMargin: "700px" });
+      po.observe(powrMount);
+    } else {
+      loadPowr();
     }
 
     behavior(root);
@@ -305,6 +317,14 @@
     var reveals = root.querySelectorAll(".tk-reveal");
 
     root.classList.add("tk-js");
+    // 同じ親を持つ複数要素は少しずつ遅らせてカスケード表示
+    if (!reduce) {
+      reveals.forEach(function (el) {
+        var i = 0, s = el.previousElementSibling;
+        while (s) { if (s.classList && s.classList.contains("tk-reveal")) i++; s = s.previousElementSibling; }
+        if (i) el.style.transitionDelay = Math.min(i * 0.08, 0.32) + "s";
+      });
+    }
     var showAll = function () { reveals.forEach(function (el) { el.classList.add("tk-in"); }); };
     if (reduce) {
       showAll();

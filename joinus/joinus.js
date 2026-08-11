@@ -253,8 +253,9 @@ html,body{overflow-x:hidden;max-width:100%;}
 #joinus-wrapper .j-foot-copy{font-size:clamp(.75rem,1.2vw,.95rem);color:rgba(255,255,255,.5);font-weight:800;letter-spacing:.4em;text-transform:uppercase;}
 
 /* reveal & image fade */
-#joinus-wrapper.j-js .j-reveal{opacity:0;transform:translateY(38px);transition:opacity .8s ease-out,transform .8s ease-out;}
+#joinus-wrapper.j-js .j-reveal{opacity:0;transform:translateY(42px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
 #joinus-wrapper.j-js .j-reveal.j-in{opacity:1;transform:none;}
+#joinus-wrapper .j-section{content-visibility:auto;contain-intrinsic-size:auto 900px;}
 #joinus-wrapper.j-js .j-machine img{opacity:0;transform:scale(1.03);transition:opacity .8s ease,transform .8s ease;}
 #joinus-wrapper.j-js .j-machine img.j-loaded{opacity:1;transform:none;}
 #joinus-wrapper a:focus-visible{outline:3px solid var(--j-orange);outline-offset:3px;border-radius:10px;}
@@ -292,6 +293,14 @@ html,body{overflow-x:hidden;max-width:100%;}
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var reveals = root.querySelectorAll(".j-reveal");
     root.classList.add("j-js");
+    // カスケード表示
+    if (!reduce) {
+      reveals.forEach(function (el) {
+        var i = 0, s = el.previousElementSibling;
+        while (s) { if (s.classList && s.classList.contains("j-reveal")) i++; s = s.previousElementSibling; }
+        if (i) el.style.transitionDelay = Math.min(i * 0.09, 0.36) + "s";
+      });
+    }
     var showAll = function () { reveals.forEach(function (el) { el.classList.add("j-in"); }); };
     if (reduce) {
       showAll();
