@@ -67,6 +67,34 @@
     </div>
   </section>
 
+  <section class="tk-sponsors tk-reveal">
+    <div class="tk-wrap"><p class="tk-sponsors-label">Our Sponsors</p></div>
+    <div class="tk-marquee">
+      <div class="tk-marquee-track">
+        <div class="tk-marquee-group">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i37e1343237b767ac/version/1786380369/image.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i9b0a66133f4f5b96/version/1786380353/image.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=335x1024:format=png/path/s526a7478a3a00671/image/i869879a7b26d8d49/version/1786378508/image.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=306x1024:format=png/path/s526a7478a3a00671/image/i9364434686907fa8/version/1786378602/image.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=260x1024:format=png/path/s526a7478a3a00671/image/i21bd8086fc6e9ef3/version/1786380254/image.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=273x1024:format=gif/path/s526a7478a3a00671/image/ib7ad5ef567661309/version/1786380423/image.gif">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/if4e5ef391e30f45d/version/1786378622/image.jpg">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/i869d07cee9cc75d0/version/1786378626/image.jpg">
+        </div>
+        <div class="tk-marquee-group" aria-hidden="true">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i37e1343237b767ac/version/1786380369/image.png">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i9b0a66133f4f5b96/version/1786380353/image.png">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=335x1024:format=png/path/s526a7478a3a00671/image/i869879a7b26d8d49/version/1786378508/image.png">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=306x1024:format=png/path/s526a7478a3a00671/image/i9364434686907fa8/version/1786378602/image.png">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=260x1024:format=png/path/s526a7478a3a00671/image/i21bd8086fc6e9ef3/version/1786380254/image.png">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=273x1024:format=gif/path/s526a7478a3a00671/image/ib7ad5ef567661309/version/1786380423/image.gif">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/if4e5ef391e30f45d/version/1786378622/image.jpg">
+          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/i869d07cee9cc75d0/version/1786378626/image.jpg">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="activities" class="tk-activities">
     <div class="tk-wrap">
       <h2 class="tk-label tk-section-label">Activities</h2>
@@ -225,6 +253,16 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-card svg{width:52px;height:52px;color:var(--tk-orange);margin-bottom:20px;}
 #takuden-wrapper .tk-card h4{font-size:clamp(2rem,3.4vw,2.8rem);font-weight:900;font-style:italic;letter-spacing:-.02em;margin-bottom:16px;}
 #takuden-wrapper .tk-card p{color:var(--tk-slate-soft);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.8;}
+#takuden-wrapper .tk-sponsors{background:#fff;border-top:1px solid var(--tk-border);border-bottom:1px solid var(--tk-border);padding:clamp(28px,4vw,46px) 0;overflow:hidden;}
+#takuden-wrapper .tk-sponsors-label{text-align:center;font-size:.78rem;font-weight:900;letter-spacing:.35em;text-transform:uppercase;color:var(--tk-slate-soft);margin-bottom:clamp(20px,3vw,32px);}
+#takuden-wrapper .tk-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+#takuden-wrapper .tk-marquee-track{display:flex;width:max-content;animation:tk-marquee 42s linear infinite;}
+#takuden-wrapper .tk-marquee:hover .tk-marquee-track{animation-play-state:paused;}
+#takuden-wrapper .tk-marquee-group{display:flex;align-items:center;gap:clamp(42px,6vw,84px);padding-right:clamp(42px,6vw,84px);}
+#takuden-wrapper .tk-marquee-group img{height:clamp(42px,6vw,66px);width:auto;object-fit:contain;flex:none;opacity:.9;transition:opacity .3s,transform .3s;}
+#takuden-wrapper .tk-marquee-group img:hover{opacity:1;transform:scale(1.06);}
+@keyframes tk-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){#takuden-wrapper .tk-marquee-track{animation:none;}#takuden-wrapper .tk-marquee{overflow-x:auto;}}
 #takuden-wrapper .tk-activities{padding:clamp(70px,11vw,140px) 0;background:var(--tk-bg-alt);}
 #takuden-wrapper .tk-act-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:clamp(64px,9vw,110px);}
 #takuden-wrapper .tk-act-text{min-width:0;}
