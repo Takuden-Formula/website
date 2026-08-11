@@ -28,7 +28,7 @@
 
   <!-- ===== マシン画像セパレーター ===== -->
   <div class="j-machine j-reveal">
-    <img loading="lazy" decoding="async" alt="TAKUDEN EV マシン" src="https://image.jimcdn.com/cdn-cgi/image/width=1920,height=1080,fit=contain,format=jpg/app/cms/storage/image/path/s526a7478a3a00671/image/i6c319012196b6805/version/1771399902/image.jpg">
+    <img loading="lazy" decoding="async" alt="TAKUDEN EV マシン" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x1080:format=jpg/path/s526a7478a3a00671/image/i6c319012196b6805/version/1771399902/image.jpg">
   </div>
 
   <!-- ===== メンバーの声 ===== -->
