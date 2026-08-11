@@ -259,7 +259,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-marquee-track{display:flex;width:max-content;animation:tk-marquee 42s linear infinite;}
 #takuden-wrapper .tk-marquee:hover .tk-marquee-track{animation-play-state:paused;}
 #takuden-wrapper .tk-marquee-group{display:flex;align-items:center;gap:clamp(42px,6vw,84px);padding-right:clamp(42px,6vw,84px);}
-#takuden-wrapper .tk-marquee-group img{height:clamp(42px,6vw,66px);width:auto;object-fit:contain;flex:none;opacity:.9;transition:opacity .3s,transform .3s;}
+#takuden-wrapper .tk-marquee-group img{height:clamp(38px,5vw,52px);width:auto;max-width:clamp(140px,16vw,180px);object-fit:contain;flex:none;opacity:.9;transition:opacity .3s,transform .3s;}
 #takuden-wrapper .tk-marquee-group img:hover{opacity:1;transform:scale(1.06);}
 @keyframes tk-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion:reduce){#takuden-wrapper .tk-marquee-track{animation:none;}#takuden-wrapper .tk-marquee{overflow-x:auto;}}
@@ -418,6 +418,10 @@ html,body{overflow-x:hidden;max-width:100%;}
     root.querySelectorAll(".tk-slider").forEach(function (slider) {
       var slides = slider.querySelectorAll(".tk-slide");
       if (slides.length < 2) return;
+      // 画像をランダム順に並べ替え（読み込みごとにシャッフル）
+      var arr = Array.prototype.slice.call(slides);
+      for (var k = arr.length - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)); var t = arr[k]; arr[k] = arr[j]; arr[j] = t; }
+      arr.forEach(function (s) { slider.appendChild(s); });
       var dots = document.createElement("div");
       dots.className = "tk-dots";
       slides.forEach(function (_, i) {
