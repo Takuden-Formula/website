@@ -44,6 +44,7 @@
   var CSS = [
 "#history-wrapper{--h-orange:#FF6B00;--h-orange-deep:#c2410c;--h-ink:#0f172a;--h-slate:#475569;--h-border:#e2e8f0;--h-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--h-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#history-wrapper *{box-sizing:border-box;}",
+"#history-wrapper h2,#history-wrapper h3,#history-wrapper h4{color:var(--h-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#history-wrapper h2,#history-wrapper h4,#history-wrapper p,#history-wrapper ol{margin:0;padding:0;}",
 "#history-wrapper ol{list-style:none;}",
 "#history-wrapper .h-wrap{max-width:980px;margin:0 auto;padding:0 clamp(16px,5vw,40px);}",

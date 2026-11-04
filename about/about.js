@@ -75,6 +75,7 @@
   var CSS = [
 "#about-wrapper{--a-orange:#FF6B00;--a-orange-deep:#c2410c;--a-ink:#0f172a;--a-slate:#475569;--a-border:#e2e8f0;--a-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--a-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#about-wrapper *{box-sizing:border-box;}",
+"#about-wrapper h2,#about-wrapper h3,#about-wrapper h4{color:var(--a-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#about-wrapper h2,#about-wrapper h3,#about-wrapper h4,#about-wrapper p,#about-wrapper ul,#about-wrapper ol{margin:0;padding:0;}",
 "#about-wrapper ul,#about-wrapper ol{list-style:none;}",
 "#about-wrapper a{text-decoration:none;color:inherit;}",

@@ -21,7 +21,7 @@
     { name: "ダッソー・システムズ株式会社", what: "3D CAD「SOLIDWORKS」のライセンスをご支援いただいています。", url: "https://www.3ds.com/ja/", logo: "solidworks.png" },
     { name: "株式会社デンソー", what: "車両に使うモーター・インバータをご貸与いただき、技術的なご支援もいただいています。", url: "https://www.denso.com/jp/ja/", logo: "denso.png" },
     { name: "トヨタ自動車株式会社", what: "2027年大会に向けた電池モジュールをご貸与いただき、バッテリー安全講習会など技術的なご支援もいただいています。", url: "https://global.toyota/", logo: "toyota.png" },
-    { name: "株式会社ワイズトレーディング", what: "3D CAD「NX」の体験の機会をいただいています。", url: "https://wise-staff.com/", logo: "wise.jpg" },
+    { name: "ワイズトレーディング株式会社", what: "3D CAD「NX」の体験の機会をいただいています。", url: "https://wise-staff.com/", logo: "wise.jpg" },
     { name: "ZONe", what: "エナジードリンクをご提供いただきました。", url: "https://zone-energy.jp/", logo: "zone.jpg" }
   ];
 
@@ -60,6 +60,7 @@
   var CSS = [
 "#sponsors-wrapper{--s-orange:#FF6B00;--s-orange-deep:#c2410c;--s-ink:#0f172a;--s-slate:#475569;--s-border:#e2e8f0;--s-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--s-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#sponsors-wrapper *{box-sizing:border-box;}",
+"#sponsors-wrapper h2,#sponsors-wrapper h3,#sponsors-wrapper h4{color:var(--s-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#sponsors-wrapper h2,#sponsors-wrapper h3,#sponsors-wrapper h4,#sponsors-wrapper p,#sponsors-wrapper ul{margin:0;padding:0;}",
 "#sponsors-wrapper ul{list-style:none;}",
 "#sponsors-wrapper a{text-decoration:none;color:inherit;}",
