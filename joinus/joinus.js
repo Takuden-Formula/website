@@ -16,7 +16,7 @@
   <!-- ===== ヒーロー ===== -->
   <section class="j-hero">
     <div class="j-wrap j-reveal">
-      <span class="j-badge">New Members Wanted 2025</span>
+      <span class="j-badge">New Members Wanted 2026</span>
       <h1 class="j-hero-title">未来を、<br><span class="j-accent">その手で創れ。</span></h1>
       <p class="j-hero-sub">拓殖大学電気自動車同好会「TAKUDEN」へようこそ。<br>大学生活を「受動的」から「能動的」へ変える、一生モノの経験がここにあります。</p>
       <div class="j-hero-btns">
@@ -90,11 +90,11 @@
       <div class="j-schedule">
         <div class="j-slot j-reveal">
           <span class="j-day">水曜日</span>
-          <div class="j-slot-time"><span class="j-time">17:40 〜</span><span class="j-slot-label">Regular Activity（5限）</span></div>
+          <div class="j-slot-time"><span class="j-time">4・5限</span><span class="j-slot-label">Regular Activity</span></div>
         </div>
         <div class="j-slot j-reveal">
-          <span class="j-day">木曜日</span>
-          <div class="j-slot-time"><span class="j-time">17:40 〜</span><span class="j-slot-label">Regular Activity（5限）</span></div>
+          <span class="j-day">金曜日</span>
+          <div class="j-slot-time"><span class="j-time">4・5限</span><span class="j-slot-label">Regular Activity</span></div>
         </div>
       </div>
     </div>
@@ -155,7 +155,7 @@
 
   <footer class="j-footer">
     <div class="j-foot-logo">TAKUDEN<span class="j-accent">.</span></div>
-    <p class="j-foot-copy">© 2025 Takushoku University Electric Vehicle Club</p>
+    <p class="j-foot-copy">© 2026 Takushoku University Electric Vehicle Club</p>
   </footer>
 
 </div>`;
