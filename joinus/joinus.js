@@ -48,13 +48,13 @@
         </article>
         <article class="j-vcard j-reveal" style="--acc:#334155;background:#f8fafc;">
           <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">2年生 / 回路担当</span></div></div>
+          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">回路担当</span></div></div>
           <p class="j-vquote">「座学を超えた、実践の場。」</p>
           <p class="j-vbody">授業だけでは触れられない、リアルな技術を仲間と高め合えます。エンジニアとしての第一歩を踏み出し、将来のキャリアが明確に見えました。</p>
         </article>
         <article class="j-vcard j-reveal" style="--acc:#2563eb;background:#eff6ff;">
           <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">U</div><div><h4 class="j-vname">U君</h4><span class="j-vrole">4年生 / 代表</span></div></div>
+          <div class="j-vhead"><div class="j-avatar">U</div><div><h4 class="j-vname">U君</h4><span class="j-vrole">4年生 / 前代表</span></div></div>
           <p class="j-vquote">「工学部なら、迷わずここへ。」</p>
           <p class="j-vbody">全員で一つを作り上げる大変さはありますが、その分やりがいと達成感は格別。工学部の学生には自信を持って入部をおすすめします！</p>
         </article>
@@ -66,7 +66,7 @@
         </article>
         <article class="j-vcard j-reveal" style="--acc:#64748b;background:#fafafa;">
           <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">2年生 / カウル製作</span></div></div>
+          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">カウル製作</span></div></div>
           <p class="j-vquote">「走らせるのは人間だろ。」</p>
           <p class="j-vbody">大会で本気の大人が泣く姿を見た。受け身の毎日はもう終わり。ここが、本気になれるラストチャンスです。</p>
         </article>
@@ -112,14 +112,14 @@
           <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4452187313881!2d139.27681165840916!3d35.62544439401732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzMxLjYiTiAxMznCsDE2JzM3LjEiRQ!5e0!3m2!1sja!2sjp!4v1728866579633!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="学生交流会館 422号室"></iframe></div>
           <div class="j-loc-body">
             <div class="j-loc-head"><span class="j-loc-tag">Lab 01</span><h4 class="j-loc-title">学生交流会館 422号室</h4></div>
-            <p class="j-loc-desc">回路の設計、プログラミング、ミーティングなどを行う中心拠点です。空きコマの自習室としても利用可能。</p>
+            <p class="j-loc-desc">回路の設計、プログラミング、ミーティングなどを行う中心拠点です。部費はかかりません。</p>
           </div>
         </article>
         <article class="j-loc j-reveal">
           <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4398862908851!2d139.27736145840913!3d35.62641669400266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzM1LjEiTiAxMznCsDE2JzM4LjUiRQ!5e0!3m2!1sja!2sjp!4v1728866657831!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="実験実習工場横 倉庫"></iframe></div>
           <div class="j-loc-body">
             <div class="j-loc-head"><span class="j-loc-tag j-loc-tag-2">Garage 02</span><h4 class="j-loc-title">実験実習工場横 倉庫</h4></div>
-            <p class="j-loc-desc">マシンの組み立てや大型パーツの加工、走行テストなどを行うガレージです。工具類も充実しています。</p>
+            <p class="j-loc-desc">マシンの組み立てや大型パーツの加工、走行に向けた準備などを行うガレージです。工具類も充実しています。</p>
           </div>
         </article>
       </div>

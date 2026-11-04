@@ -19,6 +19,10 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `contact/contact.js` | **「Contact」ページ本体（公式SNS）**。`#contact-root` に描画 |
 | `contact/preview.html` | Contactページのローカル確認用 |
 | `report/report.js` | **「Report」ページ本体（活動報告書の一覧）**。`#report-root` に描画。号は `REPORTS` 配列 |
+| `sponsors/sponsors.js` | **「Sponsors」ページ本体**。`#sponsors-root` に描画。企業は `SPONSORS` 配列（50音順）、ロゴは `sponsors/logos/` |
+| `history/history.js` | **「History」ページ本体（沿革）**。`#history-root` に描画。出来事は `TIMELINE` 配列 |
+| `about/about.js` | **「About us」ページ本体**。`#about-root` に描画。文面は `ABOUT` オブジェクト |
+| `viewer/` | トップ・About us に埋め込む **3Dビューアー**（2027 車両フレーム V4＋足回り、`frame-v4.glb` Draco 圧縮 約0.5MB） |
 | `report/files/` | 報告書PDF `report-NN.pdf` と表紙サムネ `cover-NN.jpg`（1ページ目・幅640px） |
 
 ## Jimdoに貼るコード（トップページのHTMLブロック）
@@ -72,6 +76,22 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 ```
 
 新しい号を載せるとき: `report/files/` に PDF と表紙サムネを置き、`report.js` の `REPORTS` 先頭に1件足して push。
+
+## Jimdoに貼るコード（Sponsors / History / About us）
+
+それぞれのページの HTML ブロックに、`<名前>` を `sponsors` / `history` / `about` に置き換えて貼る:
+
+```html
+<div id="<名前>-root"></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/<名前>/<名前>.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
+```
+
+## 3Dビューアーのモデルを差し替えるとき
+
+Fusion の STEP（`T:02_設計/CAD/Fusion_archive/STEP/.../2027_車両レイアウト_vN.step`）から、`cascadio` で GLB にし、フレーム（FRAME_2027）・足回り・ホイールだけを取り出して色を付け、`gltf-transform weld → simplify --ratio 0.1 → draco` で軽くして `viewer/frame-v4.glb` を置き換える。
+電池（TBC）・デンソーのモーター/インバータ・ドライバー人形は**公開しない**（提供元の CAD のため）。
 
 ## 更新の流れ
 

@@ -33,11 +33,12 @@
   <section id="showcase" class="tk-showcase">
     <div class="tk-wrap">
       <div class="tk-reveal">
-        <h2 class="tk-label">TAKUDEN Formula 2025</h2>
+        <h2 class="tk-label">TAKUDEN Formula 2027 / Frame V4</h2>
         <h3 class="tk-display tk-showcase-h">マシン3Dイメージ</h3>
+        <p class="tk-showcase-sub">2027年大会に向けて設計中の車両フレーム（V4）と足回りです。ドラッグで回転、ピンチ・ホイールで拡大できます。</p>
       </div>
       <div class="tk-viewer tk-reveal">
-        <iframe src="https://takuden-formula.github.io/air-handle-drive/viewer.html" loading="lazy" allowfullscreen title="TAKUDENフォーミュラ2025 3Dビューアー"></iframe>
+        <iframe src="https://takuden-formula.github.io/website/viewer/" loading="lazy" allowfullscreen title="TAKUDEN 2027 車両フレームV4 3Dビューアー"></iframe>
       </div>
     </div>
   </section>
@@ -73,24 +74,24 @@
     <div class="tk-marquee">
       <div class="tk-marquee-track">
         <div class="tk-marquee-group">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i37e1343237b767ac/version/1786380369/image.png">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i9b0a66133f4f5b96/version/1786380353/image.png">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=335x1024:format=png/path/s526a7478a3a00671/image/i869879a7b26d8d49/version/1786378508/image.png">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=306x1024:format=png/path/s526a7478a3a00671/image/i9364434686907fa8/version/1786378602/image.png">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=260x1024:format=png/path/s526a7478a3a00671/image/i21bd8086fc6e9ef3/version/1786380254/image.png">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=273x1024:format=gif/path/s526a7478a3a00671/image/ib7ad5ef567661309/version/1786380423/image.gif">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/if4e5ef391e30f45d/version/1786378622/image.jpg">
-          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/i869d07cee9cc75d0/version/1786378626/image.jpg">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/aisin.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/ansys.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/sanwa.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/solidworks.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/denso.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/toyota.png">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/wise.jpg">
+          <img loading="lazy" decoding="async" alt="スポンサーロゴ" src="https://takuden-formula.github.io/website/sponsors/logos/zone.jpg">
         </div>
         <div class="tk-marquee-group" aria-hidden="true">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i37e1343237b767ac/version/1786380369/image.png">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=300x1024:format=png/path/s526a7478a3a00671/image/i9b0a66133f4f5b96/version/1786380353/image.png">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=335x1024:format=png/path/s526a7478a3a00671/image/i869879a7b26d8d49/version/1786378508/image.png">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=306x1024:format=png/path/s526a7478a3a00671/image/i9364434686907fa8/version/1786378602/image.png">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=260x1024:format=png/path/s526a7478a3a00671/image/i21bd8086fc6e9ef3/version/1786380254/image.png">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=273x1024:format=gif/path/s526a7478a3a00671/image/ib7ad5ef567661309/version/1786380423/image.gif">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/if4e5ef391e30f45d/version/1786378622/image.jpg">
-          <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/i869d07cee9cc75d0/version/1786378626/image.jpg">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/aisin.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/ansys.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/sanwa.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/solidworks.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/denso.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/toyota.png">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/wise.jpg">
+          <img loading="lazy" decoding="async" alt="" src="https://takuden-formula.github.io/website/sponsors/logos/zone.jpg">
         </div>
       </div>
     </div>
@@ -103,18 +104,22 @@
         <h3 class="tk-display tk-news-h">最新情報</h3>
       </div>
       <ol class="tk-news-list">
+        <li class="tk-news-item tk-reveal"><time datetime="2026-11-05">2026.11</time><span class="tk-tag">TEAM</span><div><h4>新しい執行部が始動</h4><p>1年生の会長のもと、学生フォーミュラ日本大会2027への初参戦に向けた新しい体制で活動を始めました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-11-02">2026.10.31 – 11.02</time><span class="tk-tag">EVENT</span><div><h4>紅陵祭2026に出展しました</h4><p>文京キャンパスの教室企画で、3Dプリンタで作った遊星歯車キーホルダーの組み立て体験、自作ラジコンの操作体験、運転ゲーム、モーター試験の動画とパネル展示を行いました。ご来場ありがとうございました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-26">2026.10.26</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>モーターの無負荷回転試験に成功</h4><p>車両に使うモーターとインバータに高電圧をかけ、負荷をつながない状態での回転に成功しました。停止から放電までの手順も確認しています。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-16">2026.10.16</time><span class="tk-tag">TEAM</span><div><h4>新しいチームロゴを制定</h4><p>チーム名「TAKUDEN FORMULA」を表す新しいロゴを定めました。部員募集のポスターも新しくしています。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-03">2026.10.03</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第3戦（本庄）に参加</h4><p>電気カートの耐久レース ERK Cup のトワイライトレースに、チーム「WOODS Engineering」（#54）の一員として参加しました。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-09-30">2026.09</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>電池モジュール8台の状態を確認</h4><p>トヨタ自動車様からお借りしている電池モジュール全8台の電圧と温度を測定し、ばらつきが小さいことを確かめました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-08-30">2026.08.30</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第2戦（栃木）L1クラス3位</h4><p>スプリントと22分間レースの2本とも L1クラス（リチウム60V以下）で3位。第2戦終了時点で同クラス2位タイです。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-08-18">2026.08.18</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>インバータとのCAN通信に成功</h4><p>デンソー様からお借りしているインバータと通信し、モーターやインバータの温度などのデータを受け取れるようになりました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-08-02">2026.08.02 – 08.07</time><span class="tk-tag">FSAEJ</span><div><h4>学生フォーミュラ日本大会2026に学生スタッフとして参加</h4><p>部員3名が大会運営に参加し、他校のマシンや運営を間近で学びました。来年度の参戦に向けた準備に生かしています。</p></div></li>
       </ol>
       <div class="tk-next tk-reveal">
         <p class="tk-next-label">Next</p>
         <ul>
           <li><b>2026年11月〜</b>プリチャージ回路・ディスチャージ回路の追加、フレームの設計と溶接</li>
-          <li><b>2027年8月</b>学生フォーミュラ日本大会2027への参戦を目指して、車両の設計・製作を進めています</li>
+          <li><b>2026年12月ごろ</b>電池を使った高電圧システム全体の机上試験</li>
+          <li><b>2027年8月23日〜28日</b>学生フォーミュラ日本大会2027（Aichi Sky Expo）への初参戦を目指して、車両の設計・製作を進めています</li>
         </ul>
       </div>
     </div>
@@ -268,6 +273,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-burger span{display:block;width:26px;height:2px;background:var(--tk-ink);margin:5px 0;transition:.3s;}
 #takuden-wrapper .tk-showcase{padding:clamp(110px,16vw,190px) 0 clamp(50px,8vw,90px);text-align:center;}
 #takuden-wrapper .tk-showcase-h{font-size:clamp(2.1rem,6vw,4.4rem);margin:16px auto 0;max-width:18ch;}
+#takuden-wrapper .tk-showcase-sub{margin-top:14px;color:var(--tk-slate);font-size:clamp(.95rem,1.4vw,1.05rem);line-height:1.8;}
 #takuden-wrapper .tk-viewer{position:relative;width:100%;max-width:1000px;aspect-ratio:16/10;margin:clamp(28px,4vw,48px) auto 0;border-radius:calc(var(--tk-radius) - .6rem);overflow:hidden;border:3px solid var(--tk-border);box-shadow:0 18px 44px rgba(15,23,42,.16);background:#eef1f4;-webkit-overflow-scrolling:touch;}
 #takuden-wrapper .tk-viewer iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;}
 #takuden-wrapper .tk-hero{padding:clamp(56px,9vw,110px) 0 clamp(70px,10vw,120px);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:38px 38px;text-align:center;}
