@@ -17,8 +17,9 @@
     <nav class="tk-nav" id="tk-nav" aria-label="メインナビゲーション">
       <a href="#showcase">Machine</a>
       <a href="#mission">Mission</a>
+      <a href="#news">News</a>
       <a href="#activities">Activities</a>
-      <a href="#social">Latest News</a>
+      <a href="#social">SNS</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="tk-header-right">
@@ -36,7 +37,7 @@
         <h3 class="tk-display tk-showcase-h">マシン3Dイメージ</h3>
       </div>
       <div class="tk-viewer tk-reveal">
-        <iframe src="https://salt6004.github.io/takuden-formula-2025/viewer.html" loading="lazy" allowfullscreen title="TAKUDENフォーミュラ2025 3Dビューアー"></iframe>
+        <iframe src="https://takuden-formula.github.io/air-handle-drive/viewer.html" loading="lazy" allowfullscreen title="TAKUDENフォーミュラ2025 3Dビューアー"></iframe>
       </div>
     </div>
   </section>
@@ -91,6 +92,30 @@
           <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/if4e5ef391e30f45d/version/1786378622/image.jpg">
           <img loading="lazy" decoding="async" alt="" src="https://image.jimcdn.com/app/cms/image/transf/dimension=266x1024:format=jpg/path/s526a7478a3a00671/image/i869d07cee9cc75d0/version/1786378626/image.jpg">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="tk-news">
+    <div class="tk-wrap">
+      <div class="tk-reveal tk-news-head">
+        <h2 class="tk-label">Latest News</h2>
+        <h3 class="tk-display tk-news-h">最新情報</h3>
+      </div>
+      <ol class="tk-news-list">
+        <li class="tk-news-item tk-reveal"><time datetime="2026-11-02">2026.10.31 – 11.02</time><span class="tk-tag">EVENT</span><div><h4>紅陵祭2026に出展しました</h4><p>文京キャンパスの教室企画で、3Dプリンタで作った遊星歯車キーホルダーの組み立て体験、自作ラジコンの操作体験、運転ゲーム、モーター試験の動画とパネル展示を行いました。ご来場ありがとうございました。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-10-26">2026.10.26</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>モーターの無負荷回転試験に成功</h4><p>車両に使うモーターとインバータに高電圧をかけ、負荷をつながない状態での回転に成功しました。停止から放電までの手順も確認しています。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-10-16">2026.10.16</time><span class="tk-tag">TEAM</span><div><h4>新しいチームロゴを制定</h4><p>チーム名「TAKUDEN FORMULA」を表す新しいロゴを定めました。部員募集のポスターも新しくしています。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-10-03">2026.10.03</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第3戦（本庄）に参加</h4><p>電気カートの耐久レース ERK Cup のトワイライトレースに、チーム「WOODS Engineering」（#54）の一員として参加しました。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-08-30">2026.08.30</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第2戦（栃木）L1クラス3位</h4><p>スプリントと22分間レースの2本とも L1クラス（リチウム60V以下）で3位。第2戦終了時点で同クラス2位タイです。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-08-02">2026.08.02 – 08.07</time><span class="tk-tag">FSAEJ</span><div><h4>学生フォーミュラ日本大会2026に学生スタッフとして参加</h4><p>部員3名が大会運営に参加し、他校のマシンや運営を間近で学びました。来年度の参戦に向けた準備に生かしています。</p></div></li>
+      </ol>
+      <div class="tk-next tk-reveal">
+        <p class="tk-next-label">Next</p>
+        <ul>
+          <li><b>2026年11月〜</b>プリチャージ回路・ディスチャージ回路の追加、フレームの設計と溶接</li>
+          <li><b>2027年8月</b>学生フォーミュラ日本大会2027への参戦を目指して、車両の設計・製作を進めています</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -263,6 +288,24 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-marquee-group img:hover{opacity:1;transform:scale(1.06);}
 @keyframes tk-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion:reduce){#takuden-wrapper .tk-marquee-track{animation:none;}#takuden-wrapper .tk-marquee{overflow-x:auto;}}
+#takuden-wrapper .tk-news{padding:clamp(70px,10vw,130px) 0;background:var(--tk-bg);}
+#takuden-wrapper .tk-news .tk-wrap{max-width:1100px;}
+#takuden-wrapper .tk-news-head{text-align:center;}
+#takuden-wrapper .tk-news-h{font-size:clamp(2.4rem,6.5vw,5rem);margin:14px 0 clamp(36px,5vw,64px);}
+#takuden-wrapper .tk-news-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--tk-ink);}
+#takuden-wrapper .tk-news-item{display:grid;grid-template-columns:200px 92px minmax(0,1fr);gap:clamp(12px,2vw,28px);align-items:baseline;padding:clamp(20px,3vw,30px) 4px;border-bottom:1px solid var(--tk-border);transition:background-color .3s;}
+#takuden-wrapper .tk-news-item:hover{background:var(--tk-bg-alt);}
+#takuden-wrapper .tk-news-item time{font-weight:900;font-style:italic;font-size:1.05rem;letter-spacing:.02em;color:var(--tk-ink);font-variant-numeric:tabular-nums;white-space:nowrap;}
+#takuden-wrapper .tk-tag{justify-self:start;font-size:.68rem;font-weight:900;letter-spacing:.18em;padding:4px 10px;border-radius:999px;border:1.5px solid var(--tk-orange);color:var(--tk-orange);line-height:1.2;}
+#takuden-wrapper .tk-tag-tech{background:var(--tk-orange);color:#fff;}
+#takuden-wrapper .tk-tag-race{border-color:var(--tk-ink);color:var(--tk-ink);}
+#takuden-wrapper .tk-news-item h4{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:900;line-height:1.45;margin-bottom:6px;color:var(--tk-ink);}
+#takuden-wrapper .tk-news-item p{color:var(--tk-slate);font-size:clamp(.95rem,1.4vw,1.05rem);line-height:1.8;}
+#takuden-wrapper .tk-next{margin-top:clamp(36px,5vw,56px);padding:clamp(22px,3vw,34px) clamp(22px,3.5vw,40px);border-left:6px solid var(--tk-orange);background:var(--tk-bg-alt);border-radius:0 18px 18px 0;}
+#takuden-wrapper .tk-next-label{font-size:.78rem;font-weight:900;letter-spacing:.35em;text-transform:uppercase;color:var(--tk-orange);margin-bottom:10px;}
+#takuden-wrapper .tk-next ul{list-style:none;margin:0;padding:0;}
+#takuden-wrapper .tk-next li{font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.8;color:var(--tk-ink);padding:4px 0;}
+#takuden-wrapper .tk-next li b{display:inline-block;min-width:9.5em;font-weight:900;color:var(--tk-ink);}
 #takuden-wrapper .tk-activities{padding:clamp(70px,11vw,140px) 0;background:var(--tk-bg-alt);}
 #takuden-wrapper .tk-act-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:clamp(64px,9vw,110px);}
 #takuden-wrapper .tk-act-text{min-width:0;}
@@ -316,6 +359,9 @@ html,body{overflow-x:hidden;max-width:100%;}
   #takuden-wrapper .tk-viewer{aspect-ratio:4/3;}
   #takuden-wrapper .tk-slide img{max-height:clamp(240px,80vw,460px);}
   #takuden-wrapper .tk-sns-grid{grid-template-columns:1fr;gap:36px;}
+  #takuden-wrapper .tk-news-item{grid-template-columns:auto 1fr;row-gap:8px;}
+  #takuden-wrapper .tk-news-item>div{grid-column:1/-1;}
+  #takuden-wrapper .tk-next li b{display:block;min-width:0;}
   #takuden-wrapper .tk-nav.tk-open{display:flex;flex-direction:column;gap:20px;position:absolute;top:100%;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:26px 38px;border-radius:0 0 0 22px;box-shadow:0 20px 40px rgba(15,23,42,.12);text-align:right;}
 }
 @media (prefers-reduced-motion:reduce){#takuden-wrapper.tk-js .tk-reveal,#takuden-wrapper.tk-js .tk-slide img{opacity:1;transform:none;transition:none;}}`;
