@@ -104,12 +104,12 @@
         <h3 class="tk-display tk-news-h">最新情報</h3>
       </div>
       <ol class="tk-news-list">
-        <li class="tk-news-item tk-reveal"><time datetime="2026-11-05">2026.11</time><span class="tk-tag">TEAM</span><div><h4>新しい執行部が始動</h4><p>1年生の会長のもと、学生フォーミュラ日本大会2027への初参戦に向けた新しい体制で活動を始めました。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-11">2026.11</time><span class="tk-tag">TEAM</span><div><h4>新しい執行部が始動</h4><p>1年生の会長のもと、学生フォーミュラ日本大会2027への初参戦に向けた新しい体制で活動を始めました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-11-02">2026.10.31 – 11.02</time><span class="tk-tag">EVENT</span><div><h4>紅陵祭2026に出展しました</h4><p>文京キャンパスの教室企画で、3Dプリンタで作った遊星歯車キーホルダーの組み立て体験、自作ラジコンの操作体験、運転ゲーム、モーター試験の動画とパネル展示を行いました。ご来場ありがとうございました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-26">2026.10.26</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>モーターの無負荷回転試験に成功</h4><p>車両に使うモーターとインバータに高電圧をかけ、負荷をつながない状態での回転に成功しました。停止から放電までの手順も確認しています。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-16">2026.10.16</time><span class="tk-tag">TEAM</span><div><h4>新しいチームロゴを制定</h4><p>チーム名「TAKUDEN FORMULA」を表す新しいロゴを定めました。部員募集のポスターも新しくしています。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-10-03">2026.10.03</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第3戦（本庄）に参加</h4><p>電気カートの耐久レース ERK Cup のトワイライトレースに、チーム「WOODS Engineering」（#54）の一員として参加しました。</p></div></li>
-        <li class="tk-news-item tk-reveal"><time datetime="2026-09-30">2026.09</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>電池モジュール8台の状態を確認</h4><p>トヨタ自動車様からお借りしている電池モジュール全8台の電圧と温度を測定し、ばらつきが小さいことを確かめました。</p></div></li>
+        <li class="tk-news-item tk-reveal"><time datetime="2026-09">2026.09</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>電池モジュール8台の状態を確認</h4><p>トヨタ自動車様からお借りしている電池モジュール全8台の電圧と温度を測定し、ばらつきが小さいことを確かめました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-08-30">2026.08.30</time><span class="tk-tag tk-tag-race">RACE</span><div><h4>ERK Cup 第2戦（栃木）L1クラス3位</h4><p>スプリントと22分間レースの2本とも L1クラス（リチウム60V以下）で3位。第2戦終了時点で同クラス2位タイです。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-08-18">2026.08.18</time><span class="tk-tag tk-tag-tech">TECH</span><div><h4>インバータとのCAN通信に成功</h4><p>デンソー様からお借りしているインバータと通信し、モーターやインバータの温度などのデータを受け取れるようになりました。</p></div></li>
         <li class="tk-news-item tk-reveal"><time datetime="2026-08-02">2026.08.02 – 08.07</time><span class="tk-tag">FSAEJ</span><div><h4>学生フォーミュラ日本大会2026に学生スタッフとして参加</h4><p>部員3名が大会運営に参加し、他校のマシンや運営を間近で学びました。来年度の参戦に向けた準備に生かしています。</p></div></li>

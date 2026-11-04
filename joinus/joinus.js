@@ -37,6 +37,7 @@
       <div class="j-head j-reveal">
         <span class="j-eyebrow">Member Voices</span>
         <h2 class="j-h2">メンバーの声</h2>
+        <p class="j-voice-note">※学年・担当は掲載時点のものです。</p>
         <p class="j-lead">個性豊かなメンバーたちが、TAKUDENでの「本気の挑戦」を語ります。</p>
       </div>
       <div class="j-voices">
@@ -97,6 +98,7 @@
           <div class="j-slot-time"><span class="j-time">4・5限</span><span class="j-slot-label">Regular Activity</span></div>
         </div>
       </div>
+      <p class="j-schedule-note j-reveal">部費はかかりません。見学はいつでも歓迎です。</p>
     </div>
   </section>
 
@@ -112,7 +114,7 @@
           <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4452187313881!2d139.27681165840916!3d35.62544439401732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzMxLjYiTiAxMznCsDE2JzM3LjEiRQ!5e0!3m2!1sja!2sjp!4v1728866579633!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="学生交流会館 422号室"></iframe></div>
           <div class="j-loc-body">
             <div class="j-loc-head"><span class="j-loc-tag">Lab 01</span><h4 class="j-loc-title">学生交流会館 422号室</h4></div>
-            <p class="j-loc-desc">回路の設計、プログラミング、ミーティングなどを行う中心拠点です。部費はかかりません。</p>
+            <p class="j-loc-desc">回路の設計、プログラミング、ミーティングなどを行う中心拠点です。</p>
           </div>
         </article>
         <article class="j-loc j-reveal">
@@ -197,6 +199,8 @@ html,body{overflow-x:hidden;max-width:100%;}
 #joinus-wrapper .j-section-alt{background:var(--j-bg-alt);}
 
 /* voices */
+#joinus-wrapper .j-voice-note{margin-top:10px;font-size:.85rem;color:#64748b;}
+#joinus-wrapper .j-schedule-note{margin-top:22px;text-align:center;font-weight:700;color:#475569;}
 #joinus-wrapper .j-voices{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 #joinus-wrapper .j-vcard{position:relative;overflow:hidden;border:1px solid var(--j-border);border-radius:2.5rem;padding:clamp(30px,3.2vw,48px);box-shadow:0 12px 34px rgba(15,23,42,.06);transition:transform .4s ease,box-shadow .4s ease;}
 #joinus-wrapper .j-vcard:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(15,23,42,.14);}

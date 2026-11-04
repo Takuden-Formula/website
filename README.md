@@ -90,7 +90,7 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 
 ## 3Dビューアーのモデルを差し替えるとき
 
-Fusion の STEP（`T:02_設計/CAD/Fusion_archive/STEP/.../2027_車両レイアウト_vN.step`）から、`cascadio` で GLB にし、フレーム（FRAME_2027）・足回り・ホイールだけを取り出して色を付け、`gltf-transform weld → simplify --ratio 0.1 → draco` で軽くして `viewer/frame-v4.glb` を置き換える。
+部内の CAD アーカイブにある車両レイアウトの STEP から、`cascadio` で GLB にし、フレーム（FRAME_2027）・足回り・ホイールだけを取り出して色を付け、`gltf-transform weld → simplify --ratio 0.1 → draco` で軽くして `viewer/frame-v4.glb` を置き換える。
 電池（TBC）・デンソーのモーター/インバータ・ドライバー人形は**公開しない**（提供元の CAD のため）。
 
 ## 更新の流れ

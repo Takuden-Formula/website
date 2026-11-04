@@ -25,10 +25,10 @@ model-viewer{width:100%;height:100%;--poster-color:transparent;background:radial
   <div class="bar" slot="progress-bar" id="bar"></div>
 </model-viewer>
 <div class="tag">2027 FRAME <b>V4</b></div>
-<div class="legend"><span><i style="background:#ff6b00"></i>フレーム</span><span><i style="background:#464a50"></i>サスペンション</span></div>
 <div class="hint">ドラッグで回転・ピンチで拡大</div>
 <script>
 const mv=document.getElementById('mv'),bar=document.getElementById('bar');
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)mv.removeAttribute('auto-rotate');
 mv.addEventListener('progress',e=>{const p=e.detail.totalProgress;bar.style.width=(p*100)+'%';if(p>=1)setTimeout(()=>bar.style.opacity=0,300);});
 </script>
 </body>

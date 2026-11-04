@@ -110,7 +110,7 @@
     <div class="f-wrap">
       <div class="f-reveal"><span class="f-eyebrow">Our Challenge</span><h2 class="f-h2 f-h2-light">EV（電気自動車）で挑む</h2></div>
       <div class="f-features">
-        <div class="f-feature f-reveal"><div class="f-feature-icon">⚡</div><div><h4>高電圧システム</h4><p>ルール上限600Vの高電圧システムを、車載用モーター・インバータと電池モジュールで構成。ガソリン車に負けない加速を目指します。</p></div></div>
+        <div class="f-feature f-reveal"><div class="f-feature-icon">⚡</div><div><h4>高電圧システム</h4><p>ルールで上限600Vと定められた高電圧システムに、車載用モーター・インバータと電池モジュールで挑みます。ガソリン車に負けない加速を目指します。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-feature-icon">🛡️</div><div><h4>安全設計</h4><p>絶縁監視装置（IMD）や遮断回路を備え、電池の監視装置（AMS）は自作。異常時には高電圧を確実に遮断する多重の安全設計です。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-feature-icon">🔋</div><div><h4>エネルギーマネジメント</h4><p>BMSでセルの電圧・温度を常時監視。限られた電力で最大の性能を引き出します。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-feature-icon">🔬</div><div><h4>最先端基準への対応</h4><p>年々更新される安全基準に対応。産業界と同等の高い水準で開発を進めています。</p></div></div>

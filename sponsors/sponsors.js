@@ -18,11 +18,11 @@
     { name: "アンシス・ジャパン株式会社", what: "解析ソフト Ansys のライセンスをご提供いただいています。", url: "https://ansys.synopsys.com/ja-jp", logo: "ansys.png" },
     { name: "Olds Motors", what: "タイヤとホイールをご提供いただきました。", url: "", logo: "" },
     { name: "三和電気計器株式会社", what: "絶縁抵抗計 MG102 とデジタルマルチメータ CD5002 をご寄贈いただき、高電圧の安全管理についてご指導いただきました。", url: "https://www.sanwa-meter.co.jp/japan/index.html", logo: "sanwa.png" },
+    { name: "ZONe", what: "エナジードリンクをご提供いただきました。", url: "https://zone-energy.jp/", logo: "zone.jpg" },
     { name: "ダッソー・システムズ株式会社", what: "3D CAD「SOLIDWORKS」のライセンスをご支援いただいています。", url: "https://www.3ds.com/ja/", logo: "solidworks.png" },
     { name: "株式会社デンソー", what: "車両に使うモーター・インバータをご貸与いただき、技術的なご支援もいただいています。", url: "https://www.denso.com/jp/ja/", logo: "denso.png" },
     { name: "トヨタ自動車株式会社", what: "2027年大会に向けた電池モジュールをご貸与いただき、バッテリー安全講習会など技術的なご支援もいただいています。", url: "https://global.toyota/", logo: "toyota.png" },
-    { name: "ワイズトレーディング株式会社", what: "3D CAD「NX」の体験の機会をいただいています。", url: "https://wise-staff.com/", logo: "wise.jpg" },
-    { name: "ZONe", what: "エナジードリンクをご提供いただきました。", url: "https://zone-energy.jp/", logo: "zone.jpg" }
+    { name: "ワイズトレーディング株式会社", what: "3D CAD「NX」の体験の機会をいただいています。", url: "https://wise-staff.com/", logo: "wise.jpg" }
   ];
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -44,7 +44,7 @@
     '<section class="s-hero"><div class="s-wrap s-reveal">' +
       '<p class="s-label">Sponsors</p>' +
       '<h2 class="s-display">ご支援いただいている<br class="s-br">皆様</h2>' +
-      '<p class="s-lead">私たちの活動は、多くの企業・団体の皆様のご理解とご支援に支えられています。心より御礼申し上げます。<span class="s-note">（50音順・カードから各社のサイトへ移動します）</span></p>' +
+      '<p class="s-lead">私たちの活動は、多くの企業・団体の皆様のご理解とご支援に支えられています。心より御礼申し上げます。<span class="s-note">（50音順）</span></p>' +
     '</div></section>' +
     '<section class="s-list"><div class="s-wrap"><ul class="s-grid">' + SPONSORS.map(card).join("") + '</ul></div></section>' +
     '<section class="s-cta"><div class="s-wrap"><div class="s-cta-box s-reveal">' +
