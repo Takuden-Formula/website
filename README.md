@@ -18,6 +18,8 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `joinus/preview.html` | Join Usページのローカル確認用 |
 | `contact/contact.js` | **「Contact」ページ本体（公式SNS）**。`#contact-root` に描画 |
 | `contact/preview.html` | Contactページのローカル確認用 |
+| `report/report.js` | **「Report」ページ本体（活動報告書の一覧）**。`#report-root` に描画。号は `REPORTS` 配列 |
+| `report/files/` | 報告書PDF `report-NN.pdf` と表紙サムネ `cover-NN.jpg`（1ページ目・幅640px） |
 
 ## Jimdoに貼るコード（トップページのHTMLブロック）
 
@@ -59,6 +61,17 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 (function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/contact/contact.js?v='+Date.now();document.head.appendChild(s);})();
 </script>
 ```
+
+## Jimdoに貼るコード（Report ページのHTMLブロック）
+
+```html
+<div id="report-root"></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/report/report.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
+```
+
+新しい号を載せるとき: `report/files/` に PDF と表紙サムネを置き、`report.js` の `REPORTS` 先頭に1件足して push。
 
 ## 更新の流れ
 
