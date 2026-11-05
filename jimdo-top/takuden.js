@@ -28,7 +28,6 @@
     <a href="#top" class="tk-logo" aria-label="TAKUDEN FORMULA（ページの先頭へ）"><img class="tk-logo-w" src="${BASE}/brand/logo-white.png" alt="" width="1129" height="190"><img class="tk-logo-d" src="${BASE}/brand/logo.png" alt="" width="1129" height="190"></a>
     <nav class="tk-nav" id="tk-nav" aria-label="メインナビゲーション">
       <a href="#about">About</a>
-      <a href="#showcase">Machine</a>
       <a href="#news">News</a>
       <a href="#photos">Photos</a>
       <a href="#calendar">Calendar</a>
@@ -42,7 +41,7 @@
   </header>
 
   <section id="top" class="tk-top">
-    <div class="tk-top-media" aria-hidden="true"><img src="${BASE}/photos/welding.jpg" alt="" width="1108" height="1477"></div>
+    <div class="tk-top-media" aria-hidden="true"><img src="${BASE}/photos/frame-cad-dark.jpg" alt="" width="1240" height="900"></div>
     <div class="tk-top-inner">
       <img class="tk-top-logo" src="${BASE}/brand/logo-white.png" alt="TAKUDEN FORMULA" width="1129" height="190">
       <p class="tk-top-sub">拓殖大学 電気自動車同好会</p>
@@ -83,18 +82,6 @@
     </div>
   </section>
 
-  <section id="showcase" class="tk-showcase">
-    <div class="tk-wrap">
-      <div class="tk-reveal">
-        <h2 class="tk-label">TAKUDEN Formula 2027 / Frame V4</h2>
-        <h3 class="tk-display tk-showcase-h">マシン3Dイメージ</h3>
-        <p class="tk-showcase-sub">2027年大会に向けて設計中の車両フレーム（V4）と足回りです。ドラッグで回転、ピンチ・ホイールで拡大できます。</p>
-      </div>
-      <div class="tk-viewer tk-reveal">
-        <iframe src="https://takuden-formula.github.io/website/viewer/" loading="lazy" allowfullscreen title="TAKUDEN 2027 車両フレームV4 3Dビューアー"></iframe>
-      </div>
-    </div>
-  </section>
 
 
   <section class="tk-sponsors tk-reveal">
@@ -365,11 +352,6 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-intro-links a.tk-intro-join:hover{background:var(--tk-ink);border-color:var(--tk-ink);color:#fff;}
 #takuden-wrapper .tk-calendar{padding:clamp(60px,9vw,110px) 0;background:var(--tk-bg-alt);border-top:1px solid var(--tk-border);}
 #takuden-wrapper .tk-calendar:empty,#takuden-wrapper #calendar-root:empty{min-height:0;}
-#takuden-wrapper .tk-showcase{padding:clamp(60px,9vw,110px) 0 clamp(50px,8vw,90px);text-align:center;border-top:1px solid var(--tk-border);}
-#takuden-wrapper .tk-showcase-h{font-size:clamp(2.1rem,6vw,4.4rem)!important;margin:16px auto 0;max-width:18ch;}
-#takuden-wrapper .tk-showcase-sub{margin-top:14px;color:var(--tk-slate);font-size:clamp(.95rem,1.4vw,1.05rem);line-height:1.8;}
-#takuden-wrapper .tk-viewer{position:relative;width:100%;max-width:1000px;aspect-ratio:16/10;margin:clamp(28px,4vw,48px) auto 0;border-radius:calc(var(--tk-radius) - .6rem);overflow:hidden;border:3px solid var(--tk-border);box-shadow:0 18px 44px rgba(15,23,42,.16);background:#eef1f4;-webkit-overflow-scrolling:touch;}
-#takuden-wrapper .tk-viewer iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;}
 #takuden-wrapper .tk-sponsors{background:#fff;border-top:1px solid var(--tk-border);border-bottom:1px solid var(--tk-border);padding:clamp(28px,4vw,46px) 0;overflow:hidden;}
 #takuden-wrapper .tk-sponsors-label{text-align:center;font-size:.78rem;font-weight:900;letter-spacing:.35em;text-transform:uppercase;color:var(--tk-slate-soft);margin-bottom:clamp(20px,3vw,32px);}
 #takuden-wrapper .tk-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
@@ -442,16 +424,16 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-activities,#takuden-wrapper .tk-social,#takuden-wrapper .tk-contact{content-visibility:auto;contain-intrinsic-size:auto 900px;}
 #takuden-wrapper a:focus-visible,#takuden-wrapper button:focus-visible{outline:3px solid var(--tk-orange);outline-offset:3px;border-radius:6px;}
 #takuden-wrapper .tk-top{position:relative;overflow:hidden;background:var(--tk-black);color:#fff;min-height:min(92vh,860px);display:flex;align-items:center;padding:120px 0 90px;}
-#takuden-wrapper .tk-top-media{position:absolute;top:0;right:0;bottom:0;width:48%;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%);}
-#takuden-wrapper .tk-top-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(.35) contrast(1.05) brightness(.8);}
-#takuden-wrapper .tk-top-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--tk-black) 0%,rgba(12,12,14,.15) 45%,rgba(12,12,14,0) 100%);}
+#takuden-wrapper .tk-top-media{position:absolute;top:0;right:0;bottom:0;width:58%;display:flex;align-items:center;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 92%,transparent 100%);}
+#takuden-wrapper .tk-top-media img{width:100%;height:100%;object-fit:contain;object-position:60% 55%;}
+#takuden-wrapper .tk-top-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--tk-black) 0%,transparent 14%,transparent 86%,var(--tk-black) 100%);}
 #takuden-wrapper .tk-top-inner{position:relative;z-index:2;width:90%;max-width:1240px;margin:0 auto;}
 #takuden-wrapper .tk-top-logo{width:min(560px,82vw);height:auto;}
 #takuden-wrapper .tk-top-sub{margin-top:18px;font-size:14px;font-weight:700;letter-spacing:.3em;color:rgba(255,255,255,.6);}
 #takuden-wrapper .tk-top-h{margin:clamp(28px,4vw,44px) 0 0;padding:0;font-size:clamp(25px,4.4vw,58px);font-weight:900;font-style:italic;line-height:1.25;letter-spacing:-.01em;color:#fff;}
 #takuden-wrapper .tk-top-h em{font-style:italic;color:var(--tk-orange);}
 #takuden-wrapper h1.tk-top-h,#takuden-wrapper h1.tk-top-h em{text-align:left!important;font-family:"Noto Sans JP",system-ui,sans-serif!important;font-style:italic!important;font-weight:900!important;text-transform:none!important;letter-spacing:-.01em!important;}
-#takuden-wrapper h1.tk-top-h{color:#fff!important;line-height:1.25!important;}
+#takuden-wrapper h1.tk-top-h{color:#fff!important;line-height:1.25!important;text-shadow:0 2px 18px rgba(0,0,0,.7);}
 #takuden-wrapper h1.tk-top-h em{color:var(--tk-orange)!important;}
 #takuden-wrapper .tk-count{display:inline-grid;grid-template-columns:auto auto;align-items:end;column-gap:22px;row-gap:4px;margin-top:clamp(30px,4vw,48px);padding:16px 26px 14px 0;border-top:1px solid rgba(255,255,255,.18);}
 #takuden-wrapper .tk-count-label{grid-column:1/-1;font-size:13px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.65);}
@@ -501,7 +483,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-footer img{height:30px;width:auto;}
 @media (max-width:900px){
   #takuden-wrapper .tk-top{min-height:0;padding:110px 0 80px;}
-  #takuden-wrapper .tk-top-media{width:100%;clip-path:none;opacity:.32;}
+  #takuden-wrapper .tk-top-media{width:100%;opacity:.38;-webkit-mask-image:none;mask-image:none;}
   #takuden-wrapper .tk-top-media::after{background:linear-gradient(180deg,rgba(12,12,14,.4),var(--tk-black));}
   #takuden-wrapper .tk-count{grid-template-columns:1fr;padding-right:0;}
   #takuden-wrapper .tk-count-date{padding-bottom:0;}
@@ -520,8 +502,7 @@ html,body{overflow-x:hidden;max-width:100%;}
   #takuden-wrapper .tk-act-row{grid-template-columns:1fr;}
   #takuden-wrapper .tk-act-row.tk-flip .tk-act-text,#takuden-wrapper .tk-act-row.tk-flip .tk-act-media,#takuden-wrapper .tk-act-row .tk-act-media{order:0;}
   #takuden-wrapper .tk-act-media{max-width:640px;margin:0 auto;}
-  #takuden-wrapper .tk-viewer{aspect-ratio:4/3;}
-  #takuden-wrapper .tk-slide img{max-height:clamp(240px,80vw,460px);}
+    #takuden-wrapper .tk-slide img{max-height:clamp(240px,80vw,460px);}
   #takuden-wrapper .tk-sns-grid{grid-template-columns:1fr;gap:36px;}
   #takuden-wrapper .tk-news-item{grid-template-columns:auto 1fr;row-gap:8px;}
   #takuden-wrapper .tk-news-item>div{grid-column:1/-1;}
