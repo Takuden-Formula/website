@@ -24,6 +24,8 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `about/about.js` | **「About us」ページ本体**。`#about-root` に描画。文面は `ABOUT` オブジェクト |
 | `calendar/calendar.js` | **活動カレンダー**（ホームの最新情報の下）。`#calendar-root` に描画。ホームの `takuden.js` が読み込む。定例活動は `WEEKLY`（休みは `skip`）、単発の予定は `EVENTS` に1件ずつ足す |
 | `viewer/` | トップ・About us に埋め込む **3Dビューアー**（2027 車両フレーム V4＋足回り、`frame-v4.glb` Draco 圧縮 約0.5MB） |
+| `brand/` | **チームロゴ**（2026-10-16 制定）。`logo.png`（白地用）・`logo-white.png`（黒地用）・`mark*.png`（記号のみ）。元データは Teams `05_広報/ロゴ/チームロゴ.jpg` から背景を透過して作成 |
+| `photos/` | トップの「写真で見る2026年」の写真（長辺1600px）。元は Teams `05_広報/写真/2026/`。顔が分かる写真・資料や画面の文字が読める写真は使わない |
 | `report/files/` | 報告書PDF `report-NN.pdf` と表紙サムネ `cover-NN.jpg`（1ページ目・幅640px） |
 
 ## Jimdoに貼るコード（トップページのHTMLブロック）

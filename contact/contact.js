@@ -41,7 +41,7 @@
 
   var CSS = `
 html,body{overflow-x:hidden;max-width:100%;}
-#contact-wrapper{--c-orange:#FF6B00;--c-ink:#0f172a;--c-border:#e2e8f0;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--c-ink);-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
+#contact-wrapper{--c-orange:#FF5A00;--c-ink:#0f172a;--c-border:#e2e8f0;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--c-ink);-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
 #contact-wrapper *{box-sizing:border-box;}
 #contact-wrapper h3,#contact-wrapper p{margin:0;padding:0;}
 #contact-wrapper a{text-decoration:none;color:inherit;}

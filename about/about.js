@@ -13,7 +13,7 @@
   var ABOUT = {
     lead: "拓殖大学電気自動車同好会（TAKUDEN FORMULA）は、八王子国際キャンパスを拠点に、電気で走るフォーミュラカーを自分たちの手で設計・製作しているチームです。学生フォーミュラ日本大会2027への初参戦を目指し、企業の皆様のご支援をいただきながら、設計・解析・加工・電子回路・制御まで一台のマシンに取り組んでいます。",
     facts: [["活動開始", "1994"], ["部員", "約15名"], ["活動日", "水・金"], ["目標", "2027"]],
-    machineLead: "トヨタ東京自動車大学校様から譲り受けたスチールパイプフレームを土台に、2027年の大会規則に合わせて設計を進めています。3Dモデルは設計中のフレーム（V4）と足回りです。",
+    machineLead: "トヨタ東京自動車大学校様から譲り受けたスチールパイプフレームを土台に、2027年のルール（Formula SAE Rules 2027）に合わせて設計を進めています。3Dモデルは設計中のフレーム（V4）と足回りです。",
     machine: [
       ["FRAME", "スチールパイプ・スペースフレーム（設計中 V4）"],
       ["MOTOR / INVERTER", "株式会社デンソー様からご貸与の車載用モーター・インバータ"],
@@ -73,7 +73,7 @@
   }
 
   var CSS = [
-"#about-wrapper{--a-orange:#FF6B00;--a-orange-deep:#c2410c;--a-ink:#0f172a;--a-slate:#475569;--a-border:#e2e8f0;--a-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--a-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
+"#about-wrapper{--a-orange:#FF5A00;--a-orange-deep:#c2410c;--a-ink:#0f172a;--a-slate:#475569;--a-border:#e2e8f0;--a-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--a-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#about-wrapper *{box-sizing:border-box;}",
 "#about-wrapper h2,#about-wrapper h3,#about-wrapper h4{color:var(--a-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#about-wrapper h2,#about-wrapper h3,#about-wrapper h4,#about-wrapper p,#about-wrapper ul,#about-wrapper ol{margin:0;padding:0;}",
@@ -110,7 +110,7 @@
 "#about-wrapper .a-teams p{color:var(--a-slate);font-size:.96rem;}",
 "#about-wrapper .a-road{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}",
 "#about-wrapper .a-road li{background:#fff;border:1px solid var(--a-border);border-top:4px solid #cbd5e1;border-radius:18px;padding:18px 20px;}",
-"#about-wrapper .a-road li.a-cur{border-top-color:var(--a-orange);box-shadow:0 12px 30px rgba(255,107,0,.12);}",
+"#about-wrapper .a-road li.a-cur{border-top-color:var(--a-orange);box-shadow:0 12px 30px rgba(255,90,0,.12);}",
 "#about-wrapper .a-yr{font-size:1.4rem;font-weight:900;font-style:italic;margin-bottom:6px;}",
 "#about-wrapper .a-road li p:last-child{color:var(--a-slate);font-size:.95rem;}",
 "#about-wrapper .a-cta{background:#0f172a;color:#fff;border-radius:32px;padding:clamp(32px,6vw,64px);text-align:center;}",

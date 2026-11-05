@@ -81,7 +81,7 @@
 
   var CSS = `
 html,body{overflow-x:hidden;max-width:100%;}
-#report-wrapper{--r-orange:#FF6B00;--r-ink:#0f172a;--r-slate:#475569;--r-soft:#64748b;--r-border:#e2e8f0;--r-alt:#f6f7f9;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--r-ink);line-height:1.6;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;background:#fff;}
+#report-wrapper{--r-orange:#FF5A00;--r-ink:#0f172a;--r-slate:#475569;--r-soft:#64748b;--r-border:#e2e8f0;--r-alt:#f6f7f9;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--r-ink);line-height:1.6;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;background:#fff;}
 #report-wrapper *{box-sizing:border-box;}
 #report-wrapper h3,#report-wrapper h4,#report-wrapper p,#report-wrapper ul{margin:0;padding:0;}
 #report-wrapper a{text-decoration:none;color:inherit;}

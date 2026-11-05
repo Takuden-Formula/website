@@ -80,7 +80,7 @@
 </div>`;
 
   var CSS = `
-#tkcal{--c-orange:#FF6B00;--c-ink:#0f172a;--c-text:#475569;--c-mute:#94a3b8;--c-border:#e2e8f0;--c-alt:#f6f7f9;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--c-ink);line-height:1.7;font-size:16px;text-align:left;-webkit-font-smoothing:antialiased;font-feature-settings:"palt";}
+#tkcal{--c-orange:#FF5A00;--c-ink:#0f172a;--c-text:#475569;--c-mute:#94a3b8;--c-border:#e2e8f0;--c-alt:#f6f7f9;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--c-ink);line-height:1.7;font-size:16px;text-align:left;-webkit-font-smoothing:antialiased;font-feature-settings:"palt";}
 #tkcal *{box-sizing:border-box;}
 #tkcal h3,#tkcal h4,#tkcal p,#tkcal ul{margin:0;padding:0;}
 #tkcal h3,#tkcal h4{font-family:inherit;color:inherit;text-align:inherit;text-transform:none;letter-spacing:normal;background:none;border:0;}

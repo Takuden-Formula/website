@@ -54,7 +54,7 @@
           <div class="f-event-item"><span class="f-event-k">会期</span><span class="f-event-v">6日間<small>月曜 〜 土曜</small></span></div>
         </div>
       </div>
-      <p class="f-event-note">※ 詳細の大会規則・ローカルルールは 2026年12月 発行予定。<span>出典: JSAE Competition News INFO2026005</span></p>
+      <p class="f-event-note">※ 2027大会の大会規則・ローカルルールは 2026年12月 発行予定。車両の技術規則は、例年どおり Formula SAE Rules（2027年版は 2026年9月 公開）に日本大会のローカルルールを加えたものになります。<span>出典: JSAE Competition News INFO2026005 / SAE International</span></p>
     </div>
   </section>
 
@@ -95,7 +95,7 @@
             <div class="f-row"><span class="f-row-name">アクセラレーション<small>75m 加速</small></span><b class="f-row-pt">100</b></div>
             <div class="f-row"><span class="f-row-name">スキッドパッド<small>定常円旋回</small></span><b class="f-row-pt">75</b></div>
             <div class="f-row"><span class="f-row-name">オートクロス<small>1周の走行タイム</small></span><b class="f-row-pt">125</b></div>
-            <div class="f-row"><span class="f-row-name">エンデュランス<small>約22kmの耐久走行</small></span><b class="f-row-pt">275</b></div>
+            <div class="f-row"><span class="f-row-name">エンデュランス<small>約20kmの耐久走行</small></span><b class="f-row-pt">275</b></div>
             <div class="f-row"><span class="f-row-name">効率（エフィシエンシー）<small>エネルギー効率</small></span><b class="f-row-pt">100</b></div>
           </div>
         </div>
@@ -129,10 +129,10 @@
     <div class="f-wrap">
       <div class="f-head f-reveal"><span class="f-num f-num-light">04</span><span class="f-eyebrow">Our Challenge</span><h2 class="f-h2 f-h2-light">EV（電気自動車）で挑む</h2></div>
       <div class="f-features">
-        <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.bolt}</div><div><h4>高電圧システム</h4><p>ルールで上限600Vと定められた高電圧システムに、車載用モーター・インバータと電池モジュールで挑みます。ガソリン車に負けない加速を目指します。</p></div></div>
+        <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.bolt}</div><div><h4>高電圧システム</h4><p>ルールで上限 600V（直流）と定められた高電圧システムに、車載用モーター・インバータと電池モジュールで挑みます。ガソリン車に負けない加速を目指します。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.shield}</div><div><h4>安全設計</h4><p>絶縁監視装置（IMD）や遮断回路を備え、電池の監視装置（AMS）は自作。異常時には高電圧を確実に遮断する多重の安全設計です。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.battery}</div><div><h4>エネルギーマネジメント</h4><p>BMSでセルの電圧・温度を常時監視。限られた電力で最大の性能を引き出します。</p></div></div>
-        <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.scope}</div><div><h4>最先端基準への対応</h4><p>年々更新される安全基準に対応。産業界と同等の高い水準で開発を進めています。</p></div></div>
+        <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.scope}</div><div><h4>2027年ルールへの対応</h4><p>2026年9月に公開された Formula SAE Rules 2027 を読み込み、フレーム・電池・高電圧回路の設計に反映しています。12月発行の日本大会の規則も確認して進めます。</p></div></div>
       </div>
     </div>
   </section>
@@ -150,7 +150,7 @@
 
   var CSS = `
 html,body{overflow-x:hidden;max-width:100%;}
-#fsaej-wrapper{--f-orange:#FF6B00;--f-orange-deep:#E65A00;--f-orange-ink:#C2410C;--f-ink:#111418;--f-text:#4b5563;--f-mute:#8a909a;--f-bg:#fff;--f-bg-alt:#f7f7f5;--f-border:#e7e7e4;--f-radius:14px;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--f-ink);line-height:1.8;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;font-feature-settings:"palt";}
+#fsaej-wrapper{--f-orange:#FF5A00;--f-orange-deep:#E65A00;--f-orange-ink:#C2410C;--f-ink:#111418;--f-text:#4b5563;--f-mute:#8a909a;--f-bg:#fff;--f-bg-alt:#f7f7f5;--f-border:#e7e7e4;--f-radius:14px;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--f-ink);line-height:1.8;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;font-feature-settings:"palt";}
 #fsaej-wrapper *{box-sizing:border-box;}
 #fsaej-wrapper{text-align:left;font-size:16px;}
 #fsaej-wrapper h1,#fsaej-wrapper h2,#fsaej-wrapper h3,#fsaej-wrapper h4{font-family:inherit;color:inherit;text-align:inherit;text-transform:none;letter-spacing:normal;font-style:normal;background:none;border:0;}

@@ -58,7 +58,7 @@
   }
 
   var CSS = [
-"#sponsors-wrapper{--s-orange:#FF6B00;--s-orange-deep:#c2410c;--s-ink:#0f172a;--s-slate:#475569;--s-border:#e2e8f0;--s-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--s-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
+"#sponsors-wrapper{--s-orange:#FF5A00;--s-orange-deep:#c2410c;--s-ink:#0f172a;--s-slate:#475569;--s-border:#e2e8f0;--s-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--s-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#sponsors-wrapper *{box-sizing:border-box;}",
 "#sponsors-wrapper h2,#sponsors-wrapper h3,#sponsors-wrapper h4{color:var(--s-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#sponsors-wrapper h2,#sponsors-wrapper h3,#sponsors-wrapper h4,#sponsors-wrapper p,#sponsors-wrapper ul{margin:0;padding:0;}",
@@ -76,7 +76,7 @@
 "#sponsors-wrapper .s-list{padding:clamp(20px,3vw,32px) 0 clamp(56px,8vw,96px);}",
 "#sponsors-wrapper .s-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(16px,2vw,24px);}",
 "#sponsors-wrapper .s-card>a,#sponsors-wrapper .s-card>div{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--s-border);border-radius:22px;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;}",
-"#sponsors-wrapper .s-card>a:hover,#sponsors-wrapper .s-card>a:focus-visible{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.12);border-color:rgba(255,107,0,.5);}",
+"#sponsors-wrapper .s-card>a:hover,#sponsors-wrapper .s-card>a:focus-visible{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.12);border-color:rgba(255,90,0,.5);}",
 "#sponsors-wrapper .s-card>a:focus-visible{outline:3px solid var(--s-orange);outline-offset:3px;}",
 "#sponsors-wrapper .s-logo{height:140px;display:flex;align-items:center;justify-content:center;padding:22px 28px;background:#fff;border-bottom:1px solid var(--s-border);}",
 "#sponsors-wrapper .s-logo img{max-height:84px;max-width:100%;width:auto;object-fit:contain;}",

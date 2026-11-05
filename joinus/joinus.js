@@ -41,7 +41,7 @@
         <p class="j-lead">個性豊かなメンバーたちが、TAKUDENでの「本気の挑戦」を語ります。</p>
       </div>
       <div class="j-voices">
-        <article class="j-vcard j-reveal" style="--acc:#FF6B00;background:#fffaf5;">
+        <article class="j-vcard j-reveal" style="--acc:#FF5A00;background:#fffaf5;">
           <span class="j-quote">&rdquo;</span>
           <div class="j-vhead"><div class="j-avatar">S</div><div><h4 class="j-vname">S君</h4><span class="j-vrole">3年生 / 設計担当</span></div></div>
           <p class="j-vquote">「就活に役立つ、本気のガクチカ。」</p>
@@ -164,7 +164,7 @@
 
   var CSS = `
 html,body{overflow-x:hidden;max-width:100%;}
-#joinus-wrapper{--j-orange:#FF6B00;--j-orange-deep:#E65A00;--j-ink:#0f172a;--j-slate:#475569;--j-slate-soft:#64748b;--j-bg:#fff;--j-bg-alt:#f8fafc;--j-border:#e2e8f0;--j-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--j-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
+#joinus-wrapper{--j-orange:#FF5A00;--j-orange-deep:#E65A00;--j-ink:#0f172a;--j-slate:#475569;--j-slate-soft:#64748b;--j-bg:#fff;--j-bg-alt:#f8fafc;--j-border:#e2e8f0;--j-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--j-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
 #joinus-wrapper *{box-sizing:border-box;}
 #joinus-wrapper h1,#joinus-wrapper h2,#joinus-wrapper h3,#joinus-wrapper h4,#joinus-wrapper p{margin:0;padding:0;}
 #joinus-wrapper a{text-decoration:none;color:inherit;}
@@ -180,7 +180,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 
 /* hero */
 #joinus-wrapper .j-hero{background:var(--j-bg);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:40px 40px;text-align:center;padding:clamp(90px,15vw,180px) 0 clamp(70px,10vw,120px);}
-#joinus-wrapper .j-badge{display:inline-block;background:var(--j-orange);color:#fff;padding:12px 32px;border-radius:50px;font-size:clamp(.85rem,1.4vw,1.1rem);font-weight:900;letter-spacing:.3em;text-transform:uppercase;margin-bottom:36px;box-shadow:0 18px 40px rgba(255,107,0,.35);}
+#joinus-wrapper .j-badge{display:inline-block;background:var(--j-orange);color:#fff;padding:12px 32px;border-radius:50px;font-size:clamp(.85rem,1.4vw,1.1rem);font-weight:900;letter-spacing:.3em;text-transform:uppercase;margin-bottom:36px;box-shadow:0 18px 40px rgba(255,90,0,.35);}
 #joinus-wrapper .j-hero-title{font-size:clamp(3.6rem,13vw,10rem);font-weight:900;font-style:italic;letter-spacing:-.04em;line-height:.9;margin-bottom:40px;color:var(--j-ink);}
 #joinus-wrapper .j-hero-sub{font-size:clamp(1.3rem,3vw,2.4rem);color:var(--j-ink);font-weight:800;line-height:1.5;max-width:1000px;margin:0 auto clamp(44px,6vw,72px);}
 #joinus-wrapper .j-hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;}

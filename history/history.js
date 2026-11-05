@@ -42,7 +42,7 @@
   }
 
   var CSS = [
-"#history-wrapper{--h-orange:#FF6B00;--h-orange-deep:#c2410c;--h-ink:#0f172a;--h-slate:#475569;--h-border:#e2e8f0;--h-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--h-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
+"#history-wrapper{--h-orange:#FF5A00;--h-orange-deep:#c2410c;--h-ink:#0f172a;--h-slate:#475569;--h-border:#e2e8f0;--h-bg-alt:#f6f7f9;font-family:\"Noto Sans JP\",system-ui,-apple-system,\"Segoe UI\",sans-serif;color:var(--h-ink);line-height:1.75;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}",
 "#history-wrapper *{box-sizing:border-box;}",
 "#history-wrapper h2,#history-wrapper h3,#history-wrapper h4{color:var(--h-ink);font-family:inherit;text-transform:none;text-align:inherit;background:none;border:0;}",
 "#history-wrapper h2,#history-wrapper h4,#history-wrapper p,#history-wrapper ol{margin:0;padding:0;}",
@@ -58,10 +58,10 @@
 "#history-wrapper .h-list::before{content:\"\";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--h-border),var(--h-orange));}",
 "#history-wrapper .h-item{position:relative;padding-bottom:clamp(22px,3vw,30px);}",
 "#history-wrapper .h-dot{position:absolute;left:-36px;top:6px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #cbd5e1;}",
-"#history-wrapper .h-now .h-dot{border-color:var(--h-orange);background:var(--h-orange);box-shadow:0 0 0 6px rgba(255,107,0,.18);}",
+"#history-wrapper .h-now .h-dot{border-color:var(--h-orange);background:var(--h-orange);box-shadow:0 0 0 6px rgba(255,90,0,.18);}",
 "#history-wrapper .h-year{font-size:.95rem;font-weight:900;letter-spacing:.12em;color:var(--h-orange-deep);margin-bottom:6px;}",
 "#history-wrapper .h-card{background:var(--h-bg-alt);border:1px solid var(--h-border);border-radius:18px;padding:16px 20px;}",
-"#history-wrapper .h-now .h-card{background:#fff7ed;border-color:rgba(255,107,0,.4);}",
+"#history-wrapper .h-now .h-card{background:#fff7ed;border-color:rgba(255,90,0,.4);}",
 "#history-wrapper .h-card h4{font-size:1.08rem;font-weight:900;}",
 "#history-wrapper .h-card p{margin-top:4px;color:var(--h-slate);font-size:.97rem;}",
 "#history-wrapper.h-js .h-reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}",
