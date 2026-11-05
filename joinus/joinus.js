@@ -10,273 +10,281 @@
 (function () {
   "use strict";
 
+  var SELF = (document.currentScript && document.currentScript.src) || "";
+  var BASE = /\/joinus\/joinus\.js/.test(SELF)
+    ? SELF.replace(/\/joinus\/joinus\.js.*$/, "")
+    : "https://takuden-formula.github.io/website";
+
+  // 担当（班）。サークルの作業管理の班分けに合わせている
+  var TEAMS = [
+    ["01", "機械", "フレームと足回りの設計・解析、CAD、溶接・加工。", "Fusion / SOLIDWORKS / Ansys"],
+    ["02", "回路", "高電圧回路、車両の制御、インバータとのCAN通信。", "Arduino / ESP32 / KiCad / LTspice"],
+    ["03", "バッテリー", "電池モジュールの監視と、充放電の試験。", "BMS / 計測"],
+    ["04", "広報", "SNS・ホームページ・文化祭の企画と展示。", "Instagram / X / Web"],
+    ["05", "渉外", "支援企業の皆様への連絡と、活動報告書づくり。", "報告書 / メール"]
+  ];
+
+  // メンバーの声（掲載時点の学年・担当）
+  var VOICES = [
+    ["S", "3年生 / 設計担当", "就活に役立つ、本気のガクチカ。", "あまり車に興味はなかったけど、入ってみたら貴重な経験の連続。実際に企業から「ガクチカ」として高く評価され、就活の大きな武器になりました。"],
+    ["Y", "回路担当", "座学を超えた、実践の場。", "授業だけでは触れられない、リアルな技術を仲間と高め合えます。エンジニアとしての第一歩を踏み出し、将来のキャリアが明確に見えました。"],
+    ["U", "4年生 / 前代表", "工学部なら、迷わずここへ。", "全員で一つを作り上げる大変さはありますが、その分やりがいと達成感は格別。工学部の学生には自信を持って入部をおすすめします！"],
+    ["T", "3年生 / デザイン", "理想が現実になる感動。", "自分がデザインしたパーツが本物の形になる。実践的なCADを基礎から習得し、設計データが目の前に現れた時の達成感は格別です。"],
+    ["Y", "カウル製作", "走らせるのは人間だろ。", "大会で本気の大人が泣く姿を見た。受け身の毎日はもう終わり。ここが、本気になれるラストチャンスです。"],
+    ["S", "1年生 / 研修中", "失敗できるサークル。", "ここでは「失敗」が当たり前。その試行錯誤こそが成長。一からEVを作る中で、最高の仲間と出会えました。"]
+  ];
+
+  var PHOTOS = [
+    ["welding.jpg", "部室での溶接作業"],
+    ["breadboard.jpg", "新人教育｜マイコンでモーターを動かす入門"],
+    ["kart-run.jpg", "学内でのEVカート走行"],
+    ["ryoryo-logo.jpg", "紅陵祭2026の教室展示"]
+  ];
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
   var HTML = `
 <div id="joinus-wrapper">
 
-  <!-- ===== ヒーロー ===== -->
   <section class="j-hero">
-    <div class="j-wrap j-reveal">
-      <span class="j-badge">New Members Wanted 2026</span>
-      <h1 class="j-hero-title">未来を、<br><span class="j-accent">その手で創れ。</span></h1>
-      <p class="j-hero-sub">拓殖大学電気自動車同好会「TAKUDEN」へようこそ。<br>大学生活を「受動的」から「能動的」へ変える、一生モノの経験がここにあります。</p>
+    <div class="j-hero-media" aria-hidden="true"><img src="${BASE}/photos/kart-run.jpg" alt="" width="1600" height="1201"></div>
+    <div class="j-wrap j-hero-inner">
+      <img class="j-hero-logo" src="${BASE}/brand/logo-white.png" alt="TAKUDEN FORMULA" width="1129" height="190">
+      <p class="j-label">New Members Wanted</p>
+      <h1 class="j-hero-title">未来を、<br><em>その手で創れ。</em></h1>
+      <p class="j-hero-sub">拓殖大学電気自動車同好会「TAKUDEN FORMULA」へようこそ。<br>電気で走るフォーミュラカーを、設計から自分たちの手でつくっています。</p>
+      <ul class="j-facts">
+        <li><b>水・金</b><span>活動日 4・5限</span></li>
+        <li><b>0円</b><span>部費</span></li>
+        <li><b>365日</b><span>入部・見学受付</span></li>
+      </ul>
       <div class="j-hero-btns">
-        <a href="#contact" class="j-btn j-btn-dark">今すぐ入部を相談する</a>
-        <a href="#voices" class="j-btn j-btn-ghost">メンバーの声を聞く</a>
+        <a href="#contact" class="j-btn j-btn-o">見学・入部を相談する</a>
+        <a href="#teams" class="j-btn">何ができる？</a>
       </div>
+    </div>
+    <div class="j-slash" aria-hidden="true"><i></i><i></i><i></i></div>
+  </section>
+
+  <section id="teams" class="j-section">
+    <div class="j-wrap">
+      <div class="j-head j-reveal">
+        <h2 class="j-label">What You Can Do</h2>
+        <h3 class="j-h2">興味のあることから、<br><span class="j-accent">はじめられる。</span></h3>
+        <p class="j-lead">1台のEVをつくるには、機械も電気も、伝える力も必要です。担当は話し合って決め、いくつかを掛け持つこともできます。</p>
+      </div>
+      <ol class="j-teams">
+        ${TEAMS.map(function (t) { return '<li class="j-team j-reveal"><span class="j-team-no">' + t[0] + '</span><h4>' + esc(t[1]) + '</h4><p>' + esc(t[2]) + '</p><small>' + esc(t[3]) + '</small></li>'; }).join("")}
+      </ol>
     </div>
   </section>
 
-  <!-- ===== マシン画像セパレーター ===== -->
-  <div class="j-machine j-reveal">
-    <img loading="lazy" decoding="async" alt="TAKUDEN EV マシン" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x1080:format=jpg/path/s526a7478a3a00671/image/i6c319012196b6805/version/1771399902/image.jpg">
+  <div class="j-strip j-reveal" aria-label="活動の様子">
+    ${PHOTOS.map(function (p) { return '<figure><img loading="lazy" decoding="async" src="' + BASE + '/photos/' + p[0] + '" alt="' + esc(p[1]) + '"><figcaption>' + esc(p[1]) + '</figcaption></figure>'; }).join("")}
   </div>
 
-  <!-- ===== メンバーの声 ===== -->
   <section id="voices" class="j-section j-section-alt">
     <div class="j-wrap">
       <div class="j-head j-reveal">
-        <span class="j-eyebrow">Member Voices</span>
-        <h2 class="j-h2">メンバーの声</h2>
+        <h2 class="j-label">Member Voices</h2>
+        <h3 class="j-h2">メンバーの声</h3>
         <p class="j-voice-note">※学年・担当は掲載時点のものです。</p>
-        <p class="j-lead">個性豊かなメンバーたちが、TAKUDENでの「本気の挑戦」を語ります。</p>
       </div>
       <div class="j-voices">
-        <article class="j-vcard j-reveal" style="--acc:#FF5A00;background:#fffaf5;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">S</div><div><h4 class="j-vname">S君</h4><span class="j-vrole">3年生 / 設計担当</span></div></div>
-          <p class="j-vquote">「就活に役立つ、本気のガクチカ。」</p>
-          <p class="j-vbody">あまり車に興味はなかったけど、入ってみたら貴重な経験の連続。実際に企業から「ガクチカ」として高く評価され、就活の大きな武器になりました。</p>
-        </article>
-        <article class="j-vcard j-reveal" style="--acc:#334155;background:#f8fafc;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">回路担当</span></div></div>
-          <p class="j-vquote">「座学を超えた、実践の場。」</p>
-          <p class="j-vbody">授業だけでは触れられない、リアルな技術を仲間と高め合えます。エンジニアとしての第一歩を踏み出し、将来のキャリアが明確に見えました。</p>
-        </article>
-        <article class="j-vcard j-reveal" style="--acc:#2563eb;background:#eff6ff;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">U</div><div><h4 class="j-vname">U君</h4><span class="j-vrole">4年生 / 前代表</span></div></div>
-          <p class="j-vquote">「工学部なら、迷わずここへ。」</p>
-          <p class="j-vbody">全員で一つを作り上げる大変さはありますが、その分やりがいと達成感は格別。工学部の学生には自信を持って入部をおすすめします！</p>
-        </article>
-        <article class="j-vcard j-reveal" style="--acc:#d97706;background:#fffbeb;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">T</div><div><h4 class="j-vname">T君</h4><span class="j-vrole">3年生 / デザイン</span></div></div>
-          <p class="j-vquote">「理想が現実になる感動。」</p>
-          <p class="j-vbody">自分がデザインしたパーツが本物の形になる。実践的なCADを基礎から習得し、設計データが目の前に現れた時の達成感は格別です。</p>
-        </article>
-        <article class="j-vcard j-reveal" style="--acc:#64748b;background:#fafafa;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">Y</div><div><h4 class="j-vname">Y君</h4><span class="j-vrole">カウル製作</span></div></div>
-          <p class="j-vquote">「走らせるのは人間だろ。」</p>
-          <p class="j-vbody">大会で本気の大人が泣く姿を見た。受け身の毎日はもう終わり。ここが、本気になれるラストチャンスです。</p>
-        </article>
-        <article class="j-vcard j-reveal" style="--acc:#4f46e5;background:#f5f3ff;">
-          <span class="j-quote">&rdquo;</span>
-          <div class="j-vhead"><div class="j-avatar">S</div><div><h4 class="j-vname">S君</h4><span class="j-vrole">1年生 / 研修中</span></div></div>
-          <p class="j-vquote">「失敗できるサークル。」</p>
-          <p class="j-vbody">ここでは「失敗」が当たり前。その試行錯誤こそが成長。一からEVを作る中で、最高の仲間と出会えました。</p>
-        </article>
+        ${VOICES.map(function (v) { return '<article class="j-vcard j-reveal"><p class="j-vquote">「' + esc(v[2]) + '」</p><p class="j-vbody">' + esc(v[3]) + '</p><div class="j-vhead"><span class="j-avatar">' + esc(v[0]) + '</span><span class="j-vrole">' + esc(v[0]) + 'さん｜' + esc(v[1]) + '</span></div></article>'; }).join("")}
       </div>
     </div>
   </section>
 
-  <!-- ===== 活動時間 ===== -->
-  <section id="schedule" class="j-section">
+  <section id="flow" class="j-section">
     <div class="j-wrap">
       <div class="j-head j-reveal">
-        <span class="j-eyebrow">Activity Schedule</span>
-        <h2 class="j-h2">活動時間</h2>
+        <h2 class="j-label">How To Join</h2>
+        <h3 class="j-h2">入部までの流れ</h3>
       </div>
-      <div class="j-schedule">
-        <div class="j-slot j-reveal">
-          <span class="j-day">水曜日</span>
-          <div class="j-slot-time"><span class="j-time">4・5限</span><span class="j-slot-label">Regular Activity</span></div>
-        </div>
-        <div class="j-slot j-reveal">
-          <span class="j-day">金曜日</span>
-          <div class="j-slot-time"><span class="j-time">4・5限</span><span class="j-slot-label">Regular Activity</span></div>
-        </div>
-      </div>
-      <p class="j-schedule-note j-reveal">部費はかかりません。見学はいつでも歓迎です。</p>
+      <ol class="j-flow">
+        <li class="j-reveal"><span>STEP 01</span><h4>連絡する</h4><p>公式LINE・SNS・メールのどれからでも。「話だけ聞きたい」も歓迎です。</p></li>
+        <li class="j-reveal"><span>STEP 02</span><h4>見学に来る</h4><p>水曜・金曜の4・5限に活動しています。部室やガレージで、実際の作業を見てください。</p></li>
+        <li class="j-reveal"><span>STEP 03</span><h4>入部する</h4><p>部費はかかりません。まずは先輩と一緒に、興味のある担当から始めます。</p></li>
+      </ol>
     </div>
   </section>
 
-  <!-- ===== 活動拠点 ===== -->
   <section id="location" class="j-section j-section-alt">
     <div class="j-wrap">
       <div class="j-head j-reveal">
-        <span class="j-eyebrow">Activity Bases</span>
-        <h2 class="j-h2">活動拠点</h2>
+        <h2 class="j-label">Activity Bases</h2>
+        <h3 class="j-h2">活動拠点</h3>
+        <p class="j-lead">八王子国際キャンパスの2か所で活動しています。</p>
       </div>
       <div class="j-locs">
         <article class="j-loc j-reveal">
-          <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4452187313881!2d139.27681165840916!3d35.62544439401732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzMxLjYiTiAxMznCsDE2JzM3LjEiRQ!5e0!3m2!1sja!2sjp!4v1728866579633!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="学生交流会館 422号室"></iframe></div>
-          <div class="j-loc-body">
-            <div class="j-loc-head"><span class="j-loc-tag">Lab 01</span><h4 class="j-loc-title">学生交流会館 422号室</h4></div>
-            <p class="j-loc-desc">回路の設計、プログラミング、ミーティングなどを行う中心拠点です。</p>
-          </div>
+          <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4452187313881!2d139.27681165840916!3d35.62544439401732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzMxLjYiTiAxMznCsDE2JzM3LjEiRQ!5e0!3m2!1sja!2sjp!4v1728866579633!5m2!1sja!2sjp" loading="lazy" allowfullscreen title="学生交流会館 422号室の地図"></iframe></div>
+          <div class="j-loc-body"><span class="j-loc-tag">Lab 01</span><h4>学生交流会館 422号室</h4><p>回路の設計、プログラミング、ミーティングなどを行う中心拠点です。</p></div>
         </article>
         <article class="j-loc j-reveal">
-          <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4398862908851!2d139.27736145840913!3d35.62641669400266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzM1LjEiTiAxMznCsDE2JzM4LjUiRQ!5e0!3m2!1sja!2sjp!4v1728866657831!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="実験実習工場横 倉庫"></iframe></div>
-          <div class="j-loc-body">
-            <div class="j-loc-head"><span class="j-loc-tag j-loc-tag-2">Garage 02</span><h4 class="j-loc-title">実験実習工場横 倉庫</h4></div>
-            <p class="j-loc-desc">マシンの組み立てや大型パーツの加工、走行に向けた準備などを行うガレージです。工具類も充実しています。</p>
-          </div>
+          <div class="j-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d405.4398862908851!2d139.27736145840913!3d35.62641669400266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM3JzM1LjEiTiAxMznCsDE2JzM4LjUiRQ!5e0!3m2!1sja!2sjp!4v1728866657831!5m2!1sja!2sjp" loading="lazy" allowfullscreen title="実験実習工場横 倉庫の地図"></iframe></div>
+          <div class="j-loc-body"><span class="j-loc-tag">Garage 02</span><h4>実験実習工場横 倉庫</h4><p>マシンの組み立てや大型パーツの加工、走行に向けた準備などを行うガレージです。工具類も充実しています。</p></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== コンタクト＆参加 ===== -->
   <section id="contact" class="j-section j-contact">
-    <span class="j-join-bg" aria-hidden="true">JOIN</span>
     <div class="j-wrap">
       <div class="j-head j-reveal">
-        <span class="j-eyebrow">Contact &amp; Join</span>
-        <h2 class="j-h2 j-h2-xl">君の挑戦を、<br><span class="j-accent">待っている。</span></h2>
+        <h2 class="j-label">Contact &amp; Join</h2>
+        <h3 class="j-h2">君の挑戦を、<br><span class="j-accent">待っている。</span></h3>
+        <p class="j-lead">加入希望者は<b>365日いつでも募集中</b>。「迷っているけど話は聞いてみたい」「新歓情報だけ確認したい」という方も大歓迎です。まずは公式LINEの登録やSNSのフォローからどうぞ。</p>
       </div>
-
-      <div class="j-joincard j-reveal">
-        <h3 class="j-join-title">興味を持ってくれた方へ</h3>
-        <p class="j-join-lead">TAKUDEN Formulaでは、加入希望者を<span class="j-accent">365日いつでも募集中</span>です！</p>
-        <p class="j-join-body">「迷っているけど話は聞いてみたい」「とりあえず新歓情報だけ確認したい」という方も大歓迎。まずは公式LINEの登録やSNSのフォローから始めてみませんか？</p>
-        <p class="j-join-note">参加希望の方は、下の特大ボタン、または各SNSからお気軽にご連絡ください。</p>
-      </div>
-
       <div class="j-contact-actions j-reveal">
-        <a class="j-mailbtn" href="mailto:takushokudaidennkijidousha@gmail.com">Eメールで相談する</a>
-        <div class="j-sns">
-          <a href="https://www.instagram.com/takudai_ev/" target="_blank" rel="noopener" aria-label="Instagram（新しいタブ）"><img loading="lazy" alt="Instagram" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/ie05babe034ac5fba/version/1766837981/image.png"></a>
-          <a href="https://x.com/takudai_ev" target="_blank" rel="noopener" aria-label="X（新しいタブ）"><img loading="lazy" alt="X" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/i9713588295e7af31/version/1771049063/image.png"></a>
-          <a href="https://lin.ee/PRW5jYj" target="_blank" rel="noopener" aria-label="公式LINE（新しいタブ）"><img loading="lazy" alt="LINE" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/ibd212acac6884a45/version/1771049447/image.png"></a>
-        </div>
+        <a class="j-btn j-btn-o j-btn-xl" href="https://lin.ee/PRW5jYj" target="_blank" rel="noopener">公式LINEで相談する</a>
+        <a class="j-btn j-btn-xl" href="mailto:takushokudaidennkijidousha@gmail.com">Eメールで相談する</a>
+      </div>
+      <div class="j-sns j-reveal">
+        <a href="https://www.instagram.com/takudai_ev/" target="_blank" rel="noopener" aria-label="Instagram（新しいタブ）"><img loading="lazy" alt="Instagram" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/ie05babe034ac5fba/version/1766837981/image.png"></a>
+        <a href="https://x.com/takudai_ev" target="_blank" rel="noopener" aria-label="X（新しいタブ）" class="j-sns-x"><img loading="lazy" alt="X" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/i9713588295e7af31/version/1771049063/image.png"></a>
+        <a href="https://lin.ee/PRW5jYj" target="_blank" rel="noopener" aria-label="公式LINE（新しいタブ）"><img loading="lazy" alt="LINE" src="https://image.jimcdn.com/app/cms/image/transf/dimension=512x512:format=png/path/s526a7478a3a00671/image/ibd212acac6884a45/version/1771049447/image.png"></a>
       </div>
     </div>
   </section>
 
   <footer class="j-footer">
-    <div class="j-foot-logo">TAKUDEN<span class="j-accent">.</span></div>
-    <p class="j-foot-copy">© 2026 Takushoku University Electric Vehicle Club</p>
+    <img src="${BASE}/brand/mark-white.png" alt="" width="353" height="190" loading="lazy">
+    <p>© 2026 Takushoku University Electric Vehicle Club — TAKUDEN FORMULA</p>
   </footer>
 
 </div>`;
 
   var CSS = `
 html,body{overflow-x:hidden;max-width:100%;}
-#joinus-wrapper{--j-orange:#FF5A00;--j-orange-deep:#E65A00;--j-ink:#0f172a;--j-slate:#475569;--j-slate-soft:#64748b;--j-bg:#fff;--j-bg-alt:#f8fafc;--j-border:#e2e8f0;--j-radius:2.5rem;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--j-ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;}
+#joinus-wrapper{--o:#FF5A00;--ink:#111214;--black:#0c0c0e;--slate:#475569;--slate-soft:#64748b;--bg-alt:#f6f7f9;--border:#e2e8f0;font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow-x:hidden;background:#fff;}
 #joinus-wrapper *{box-sizing:border-box;}
-#joinus-wrapper h1,#joinus-wrapper h2,#joinus-wrapper h3,#joinus-wrapper h4,#joinus-wrapper p{margin:0;padding:0;}
+#joinus-wrapper h1,#joinus-wrapper h2,#joinus-wrapper h3,#joinus-wrapper h4,#joinus-wrapper p,#joinus-wrapper figure,#joinus-wrapper ol,#joinus-wrapper ul{margin:0;padding:0;}
 #joinus-wrapper a{text-decoration:none;color:inherit;}
 #joinus-wrapper img{display:block;max-width:100%;}
 #joinus-wrapper section{scroll-margin-top:24px;}
-#joinus-wrapper .j-wrap{max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,48px);}
-#joinus-wrapper .j-accent{color:var(--j-orange);}
-#joinus-wrapper .j-eyebrow{display:block;font-size:clamp(.9rem,1.4vw,1.1rem);font-weight:900;font-style:italic;letter-spacing:.5em;text-transform:uppercase;color:var(--j-orange);margin-bottom:18px;}
-#joinus-wrapper .j-h2{font-size:clamp(3rem,8vw,7rem);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1;}
-#joinus-wrapper .j-h2-xl{font-size:clamp(3.2rem,9vw,8rem);line-height:.9;}
-#joinus-wrapper .j-head{text-align:center;margin-bottom:clamp(48px,7vw,96px);}
-#joinus-wrapper .j-lead{margin-top:24px;font-size:clamp(1.25rem,2.4vw,1.9rem);color:var(--j-slate-soft);font-weight:700;max-width:900px;margin-left:auto;margin-right:auto;line-height:1.6;}
+#joinus-wrapper .j-wrap{width:90%;max-width:1240px;margin:0 auto;}
+#joinus-wrapper .j-accent{color:var(--o)!important;}
+#joinus-wrapper .j-label{display:block;font-family:"Noto Sans JP",system-ui,sans-serif!important;font-size:12px!important;line-height:1.6!important;font-weight:900!important;font-style:normal!important;letter-spacing:.4em!important;text-transform:uppercase!important;color:var(--o)!important;text-align:inherit!important;}
+#joinus-wrapper .j-label::before{content:"";display:inline-block;width:20px;height:11px;margin:0 14px 2px 0;vertical-align:middle;background:repeating-linear-gradient(90deg,var(--o) 0 5px,transparent 5px 8px);transform:skewX(-24deg);}
+#joinus-wrapper .j-h2{margin-top:14px!important;font-family:"Noto Sans JP",system-ui,sans-serif!important;font-size:clamp(32px,5.4vw,64px)!important;font-weight:900!important;font-style:italic!important;letter-spacing:-.02em!important;line-height:1.12!important;color:var(--ink)!important;text-align:center!important;text-transform:none!important;}
+#joinus-wrapper .j-head{text-align:center;margin-bottom:clamp(36px,5vw,64px);}
+#joinus-wrapper .j-lead{margin:20px auto 0;max-width:720px;font-size:15px;color:var(--slate);line-height:1.9;}
+#joinus-wrapper .j-lead b{color:var(--ink);}
+#joinus-wrapper .j-section{padding:clamp(72px,10vw,130px) 0;}
+#joinus-wrapper .j-section-alt{background:var(--bg-alt);}
 
 /* hero */
-#joinus-wrapper .j-hero{background:var(--j-bg);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:40px 40px;text-align:center;padding:clamp(90px,15vw,180px) 0 clamp(70px,10vw,120px);}
-#joinus-wrapper .j-badge{display:inline-block;background:var(--j-orange);color:#fff;padding:12px 32px;border-radius:50px;font-size:clamp(.85rem,1.4vw,1.1rem);font-weight:900;letter-spacing:.3em;text-transform:uppercase;margin-bottom:36px;box-shadow:0 18px 40px rgba(255,90,0,.35);}
-#joinus-wrapper .j-hero-title{font-size:clamp(3.6rem,13vw,10rem);font-weight:900;font-style:italic;letter-spacing:-.04em;line-height:.9;margin-bottom:40px;color:var(--j-ink);}
-#joinus-wrapper .j-hero-sub{font-size:clamp(1.3rem,3vw,2.4rem);color:var(--j-ink);font-weight:800;line-height:1.5;max-width:1000px;margin:0 auto clamp(44px,6vw,72px);}
-#joinus-wrapper .j-hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;}
-#joinus-wrapper .j-btn{display:inline-block;padding:22px 44px;border-radius:2rem;font-size:clamp(1.15rem,1.8vw,1.5rem);font-weight:900;transition:transform .3s ease,background-color .3s,color .3s,border-color .3s,box-shadow .3s;}
-#joinus-wrapper .j-btn-dark{background:var(--j-ink);color:#fff;box-shadow:0 20px 46px rgba(15,23,42,.28);}
-#joinus-wrapper .j-btn-dark:hover,#joinus-wrapper .j-btn-dark:focus-visible{background:var(--j-orange);transform:translateY(-4px);}
-#joinus-wrapper .j-btn-ghost{background:#fff;border:3px solid var(--j-border);color:var(--j-ink);}
-#joinus-wrapper .j-btn-ghost:hover,#joinus-wrapper .j-btn-ghost:focus-visible{border-color:var(--j-orange);color:var(--j-orange);transform:translateY(-4px);}
+#joinus-wrapper .j-hero{position:relative;overflow:hidden;background:var(--black);color:#fff;padding:clamp(72px,10vw,130px) 0 clamp(72px,9vw,110px);}
+#joinus-wrapper .j-hero-media{position:absolute;top:0;right:0;bottom:0;width:50%;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);}
+#joinus-wrapper .j-hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.78);}
+#joinus-wrapper .j-hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--black),rgba(12,12,14,.1) 45%,transparent);}
+#joinus-wrapper .j-hero-inner{position:relative;z-index:2;}
+#joinus-wrapper .j-hero-logo{width:min(320px,64vw);height:auto;margin-bottom:clamp(28px,4vw,44px);}
+#joinus-wrapper .j-hero .j-label{text-align:left!important;}
+#joinus-wrapper h1.j-hero-title{margin-top:14px!important;font-family:"Noto Sans JP",system-ui,sans-serif!important;font-size:clamp(42px,7.5vw,96px)!important;font-weight:900!important;font-style:italic!important;letter-spacing:-.03em!important;line-height:1.05!important;color:#fff!important;text-align:left!important;text-transform:none!important;}
+#joinus-wrapper h1.j-hero-title em{font-style:italic!important;color:var(--o)!important;}
+#joinus-wrapper .j-hero-sub{margin-top:24px;max-width:560px;font-size:15px;line-height:1.95;color:rgba(255,255,255,.75);}
+#joinus-wrapper .j-facts{list-style:none;display:flex;flex-wrap:wrap;gap:0;margin-top:clamp(28px,4vw,40px)!important;border-top:1px solid rgba(255,255,255,.18);max-width:560px;}
+#joinus-wrapper .j-facts li{flex:1 1 0;min-width:120px;padding:16px 16px 0 0;}
+#joinus-wrapper .j-facts li+li{padding-left:16px;border-left:1px solid rgba(255,255,255,.12);}
+#joinus-wrapper .j-facts b{display:block;font-size:clamp(28px,3.4vw,40px);font-weight:900;font-style:italic;line-height:1.1;color:var(--o);}
+#joinus-wrapper .j-facts span{display:block;margin-top:4px;font-size:12px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.65);}
+#joinus-wrapper .j-hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4vw,40px);}
+#joinus-wrapper .j-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;font-size:14px;font-weight:900;letter-spacing:.06em;border:1.5px solid currentColor;transform:skewX(-14deg);transition:.25s;}
+#joinus-wrapper .j-hero .j-btn{color:#fff;border-color:rgba(255,255,255,.45);}
+#joinus-wrapper .j-btn:hover,#joinus-wrapper .j-btn:focus-visible{background:var(--ink);border-color:var(--ink);color:#fff;}
+#joinus-wrapper .j-hero .j-btn:hover{background:#fff;border-color:#fff;color:var(--black);}
+#joinus-wrapper .j-btn.j-btn-o{background:var(--o);border-color:var(--o);color:#111!important;}
+#joinus-wrapper .j-btn.j-btn-o:hover{background:#fff;border-color:#fff;}
+#joinus-wrapper .j-btn-xl{padding:20px 40px;font-size:17px;}
+#joinus-wrapper .j-slash{position:absolute;left:0;right:0;bottom:0;height:10px;display:flex;gap:6px;z-index:3;}
+#joinus-wrapper .j-slash i{display:block;height:100%;background:var(--o);transform:skewX(-30deg);}
+#joinus-wrapper .j-slash i:nth-child(1){flex:0 0 18%;margin-left:-10px;}#joinus-wrapper .j-slash i:nth-child(2){flex:0 0 3%;}#joinus-wrapper .j-slash i:nth-child(3){flex:0 0 1.5%;}
 
-/* machine image */
-#joinus-wrapper .j-machine{max-width:1400px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(22px,5vw,48px);}
-#joinus-wrapper .j-machine img{width:100%;height:auto;border-radius:var(--j-radius);box-shadow:0 30px 70px rgba(15,23,42,.22);background:#eef1f4;}
+/* teams */
+#joinus-wrapper .j-teams{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:2px solid var(--ink);}
+#joinus-wrapper .j-team{padding:24px 20px 26px 0;}
+#joinus-wrapper .j-team+.j-team{padding-left:20px;border-left:1px solid var(--border);}
+#joinus-wrapper .j-team-no{display:block;font-size:13px;font-weight:900;letter-spacing:.2em;color:var(--o);}
+#joinus-wrapper .j-team h4{margin:6px 0 10px!important;font-size:24px!important;font-weight:900!important;font-style:italic!important;color:var(--ink)!important;}
+#joinus-wrapper .j-team p{font-size:14px;line-height:1.85;color:var(--slate);}
+#joinus-wrapper .j-team small{display:block;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--slate-soft);}
 
-/* sections */
-#joinus-wrapper .j-section{padding:clamp(72px,11vw,150px) 0;background:var(--j-bg);}
-#joinus-wrapper .j-section-alt{background:var(--j-bg-alt);}
+/* photo strip */
+#joinus-wrapper .j-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;}
+#joinus-wrapper .j-strip figure{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e9ebee;}
+#joinus-wrapper .j-strip img{width:100%;height:100%;object-fit:cover;}
+#joinus-wrapper .j-strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;font-size:12px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7));}
 
 /* voices */
-#joinus-wrapper .j-voice-note{margin-top:10px;font-size:.85rem;color:#64748b;}
-#joinus-wrapper .j-schedule-note{margin-top:22px;text-align:center;font-weight:700;color:#475569;}
-#joinus-wrapper .j-voices{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-#joinus-wrapper .j-vcard{position:relative;overflow:hidden;border:1px solid var(--j-border);border-radius:2.5rem;padding:clamp(30px,3.2vw,48px);box-shadow:0 12px 34px rgba(15,23,42,.06);transition:transform .4s ease,box-shadow .4s ease;}
-#joinus-wrapper .j-vcard:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(15,23,42,.14);}
-#joinus-wrapper .j-quote{position:absolute;top:6px;right:26px;font-size:8rem;line-height:1;font-weight:900;font-style:italic;color:var(--acc);opacity:.12;pointer-events:none;}
-#joinus-wrapper .j-vhead{display:flex;align-items:center;gap:20px;margin-bottom:26px;}
-#joinus-wrapper .j-avatar{flex:none;width:72px;height:72px;border-radius:20px;background:var(--j-ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;transform:rotate(3deg);transition:background-color .35s,transform .35s;box-shadow:0 10px 24px rgba(15,23,42,.2);}
-#joinus-wrapper .j-vcard:hover .j-avatar{background:var(--acc);transform:rotate(0);}
-#joinus-wrapper .j-vname{font-size:clamp(1.5rem,2.2vw,1.9rem);font-weight:900;font-style:italic;color:var(--j-ink);}
-#joinus-wrapper .j-vrole{display:block;font-size:1rem;font-weight:700;color:var(--j-slate-soft);margin-top:2px;}
-#joinus-wrapper .j-vquote{position:relative;z-index:1;font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:900;font-style:italic;color:var(--j-ink);line-height:1.3;margin-bottom:20px;}
-#joinus-wrapper .j-vbody{position:relative;z-index:1;font-size:clamp(1.2rem,1.6vw,1.4rem);color:var(--j-slate);font-weight:700;line-height:1.85;}
+#joinus-wrapper .j-voice-note{margin-top:12px;font-size:12px;color:var(--slate-soft);}
+#joinus-wrapper .j-voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+#joinus-wrapper .j-vcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-top:4px solid var(--ink);padding:28px 26px 24px;transition:border-color .3s,transform .3s;}
+#joinus-wrapper .j-vcard:hover{border-top-color:var(--o);transform:translateY(-4px);}
+#joinus-wrapper .j-vquote{font-size:20px;font-weight:900;font-style:italic;line-height:1.45;color:var(--ink);}
+#joinus-wrapper .j-vbody{flex:1;margin-top:14px;font-size:14px;line-height:1.9;color:var(--slate);}
+#joinus-wrapper .j-vhead{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
+#joinus-wrapper .j-avatar{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--ink);color:#fff;font-weight:900;font-style:italic;transform:skewX(-10deg);}
+#joinus-wrapper .j-vcard:hover .j-avatar{background:var(--o);color:#111;}
+#joinus-wrapper .j-vrole{font-size:12px;font-weight:700;color:var(--slate-soft);}
 
-/* schedule */
-#joinus-wrapper .j-schedule{display:grid;gap:26px;}
-#joinus-wrapper .j-slot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--j-bg-alt);border:1px solid var(--j-border);border-radius:3rem;padding:clamp(32px,4vw,60px) clamp(32px,5vw,72px);}
-#joinus-wrapper .j-day{font-size:clamp(2.6rem,6vw,5rem);font-weight:900;font-style:italic;letter-spacing:-.03em;color:var(--j-ink);}
-#joinus-wrapper .j-slot-time{text-align:right;}
-#joinus-wrapper .j-time{display:block;font-size:clamp(3rem,7vw,6rem);font-weight:900;line-height:1;color:var(--j-orange);margin-bottom:10px;}
-#joinus-wrapper .j-slot-label{font-size:clamp(1rem,1.6vw,1.4rem);color:var(--j-slate-soft);text-transform:uppercase;letter-spacing:.25em;font-weight:900;}
+/* flow */
+#joinus-wrapper .j-flow{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s;}
+#joinus-wrapper .j-flow li{position:relative;padding:28px 26px;background:var(--bg-alt);border-left:4px solid var(--o);}
+#joinus-wrapper .j-flow span{font-size:12px;font-weight:900;letter-spacing:.3em;color:var(--o);}
+#joinus-wrapper .j-flow h4{margin:8px 0 10px!important;font-size:24px!important;font-weight:900!important;font-style:italic!important;color:var(--ink)!important;}
+#joinus-wrapper .j-flow p{font-size:14px;line-height:1.9;color:var(--slate);}
 
 /* location */
-#joinus-wrapper .j-locs{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;}
-#joinus-wrapper .j-loc{background:#fff;border:1px solid var(--j-border);border-radius:3rem;overflow:hidden;box-shadow:0 12px 34px rgba(15,23,42,.06);transition:transform .4s ease,box-shadow .4s ease;}
-#joinus-wrapper .j-loc:hover{transform:translateY(-8px);box-shadow:0 28px 56px rgba(15,23,42,.14);}
-#joinus-wrapper .j-map{height:clamp(300px,32vw,440px);width:100%;}
+#joinus-wrapper .j-locs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+#joinus-wrapper .j-loc{background:#fff;border:1px solid var(--border);overflow:hidden;}
+#joinus-wrapper .j-map{height:clamp(240px,26vw,340px);}
 #joinus-wrapper .j-map iframe{width:100%;height:100%;border:0;display:block;}
-#joinus-wrapper .j-loc-body{padding:clamp(28px,3vw,48px);}
-#joinus-wrapper .j-loc-head{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-bottom:18px;}
-#joinus-wrapper .j-loc-tag{background:var(--j-orange);color:#fff;padding:8px 20px;border-radius:50px;font-size:.9rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;}
-#joinus-wrapper .j-loc-tag-2{background:var(--j-slate);}
-#joinus-wrapper .j-loc-title{font-size:clamp(1.7rem,2.6vw,2.4rem);font-weight:900;color:var(--j-ink);}
-#joinus-wrapper .j-loc-desc{font-size:clamp(1.15rem,1.6vw,1.4rem);color:var(--j-slate);font-weight:700;line-height:1.8;}
+#joinus-wrapper .j-loc-body{padding:24px 26px 28px;}
+#joinus-wrapper .j-loc-tag{display:inline-block;padding:3px 12px;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;background:var(--ink);color:#fff;transform:skewX(-14deg);}
+#joinus-wrapper .j-loc h4{margin:12px 0 8px!important;font-size:22px!important;font-weight:900!important;color:var(--ink)!important;}
+#joinus-wrapper .j-loc p{font-size:14px;line-height:1.85;color:var(--slate);}
 
 /* contact */
-#joinus-wrapper .j-contact{position:relative;overflow:hidden;background:var(--j-bg);}
-#joinus-wrapper .j-join-bg{position:absolute;bottom:-8%;right:-4%;font-size:clamp(12rem,28vw,26rem);font-weight:900;font-style:italic;color:rgba(15,23,42,.04);line-height:1;pointer-events:none;user-select:none;z-index:0;}
-#joinus-wrapper .j-contact .j-wrap{position:relative;z-index:1;}
-#joinus-wrapper .j-joincard{max-width:1000px;margin:0 auto clamp(48px,7vw,80px);background:var(--j-bg-alt);border:1px solid var(--j-border);border-radius:2.5rem;padding:clamp(36px,5vw,72px);text-align:center;box-shadow:0 20px 50px rgba(15,23,42,.08);}
-#joinus-wrapper .j-join-title{font-size:clamp(1.9rem,3.4vw,3rem);font-weight:900;font-style:italic;color:var(--j-ink);margin-bottom:28px;}
-#joinus-wrapper .j-join-lead{font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:900;color:var(--j-ink);line-height:1.4;margin-bottom:24px;}
-#joinus-wrapper .j-join-body{font-size:clamp(1.2rem,1.9vw,1.6rem);color:var(--j-slate);font-weight:700;line-height:1.8;max-width:820px;margin:0 auto 28px;}
-#joinus-wrapper .j-join-note{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--j-slate-soft);font-weight:700;padding-top:24px;border-top:2px solid var(--j-border);}
-#joinus-wrapper .j-contact-actions{display:flex;flex-direction:column;align-items:center;gap:clamp(40px,6vw,72px);}
-#joinus-wrapper .j-mailbtn{display:inline-block;background:var(--j-ink);color:#fff;padding:clamp(24px,3.5vw,44px) clamp(40px,7vw,96px);border-radius:2.5rem;font-size:clamp(1.6rem,4vw,3.4rem);font-weight:900;font-style:italic;letter-spacing:.08em;box-shadow:0 30px 70px rgba(15,23,42,.28);transition:transform .3s ease,background-color .3s;}
-#joinus-wrapper .j-mailbtn:hover,#joinus-wrapper .j-mailbtn:focus-visible{background:var(--j-orange);transform:scale(1.04);}
-#joinus-wrapper .j-sns{display:flex;flex-wrap:wrap;gap:clamp(28px,6vw,72px);align-items:center;justify-content:center;}
-#joinus-wrapper .j-sns a{width:clamp(84px,12vw,150px);transition:transform .4s ease;}
-#joinus-wrapper .j-sns a:hover{transform:translateY(-8px) scale(1.08);}
-#joinus-wrapper .j-sns img{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(15,23,42,.14));}
+#joinus-wrapper .j-contact{background:var(--black);color:#fff;}
+#joinus-wrapper .j-contact .j-h2{color:#fff!important;}
+#joinus-wrapper .j-contact .j-lead{color:rgba(255,255,255,.72);}
+#joinus-wrapper .j-contact .j-lead b{color:var(--o);}
+#joinus-wrapper .j-contact-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+#joinus-wrapper .j-contact .j-btn{color:#fff;border-color:rgba(255,255,255,.45);}
+#joinus-wrapper .j-contact .j-btn:hover{background:#fff;border-color:#fff;color:var(--black);}
+#joinus-wrapper .j-sns{display:flex;justify-content:center;gap:clamp(28px,6vw,56px);margin-top:clamp(40px,6vw,64px);}
+#joinus-wrapper .j-sns a{width:clamp(56px,8vw,84px);transition:transform .3s;}
+#joinus-wrapper .j-sns a:hover{transform:translateY(-4px);}
+#joinus-wrapper .j-sns img{width:100%;height:auto;}
+#joinus-wrapper .j-sns-x img{filter:invert(1);}
+#joinus-wrapper .j-footer{display:flex;flex-direction:column;align-items:center;gap:16px;padding:48px 24px;background:var(--black);border-top:1px solid rgba(255,255,255,.08);}
+#joinus-wrapper .j-footer img{height:30px;width:auto;}
+#joinus-wrapper .j-footer p{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center;}
 
-/* footer */
-#joinus-wrapper .j-footer{background:var(--j-ink);text-align:center;padding:clamp(56px,8vw,96px) 24px;}
-#joinus-wrapper .j-foot-logo{font-size:clamp(2.6rem,5vw,4rem);font-weight:900;font-style:italic;letter-spacing:-.04em;color:#fff;margin-bottom:20px;}
-#joinus-wrapper .j-foot-copy{font-size:clamp(.75rem,1.2vw,.95rem);color:rgba(255,255,255,.5);font-weight:800;letter-spacing:.4em;text-transform:uppercase;}
-
-/* reveal & image fade */
-#joinus-wrapper.j-js .j-reveal{opacity:0;transform:translateY(42px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+/* reveal */
+#joinus-wrapper.j-js .j-reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
 #joinus-wrapper.j-js .j-reveal.j-in{opacity:1;transform:none;}
-#joinus-wrapper .j-section{content-visibility:auto;contain-intrinsic-size:auto 900px;}
-#joinus-wrapper.j-js .j-machine img{opacity:0;transform:scale(1.03);transition:opacity .8s ease,transform .8s ease;}
-#joinus-wrapper.j-js .j-machine img.j-loaded{opacity:1;transform:none;}
-#joinus-wrapper a:focus-visible{outline:3px solid var(--j-orange);outline-offset:3px;border-radius:10px;}
+#joinus-wrapper a:focus-visible{outline:3px solid var(--o);outline-offset:3px;}
 
-/* responsive */
 @media (max-width:1000px){
-  #joinus-wrapper .j-voices{grid-template-columns:repeat(2,1fr);}
+  #joinus-wrapper .j-teams{grid-template-columns:repeat(2,minmax(0,1fr));}
+  #joinus-wrapper .j-team,#joinus-wrapper .j-team+.j-team{padding:20px 14px 22px 0;border-left:0;border-bottom:1px solid var(--border);}
+  #joinus-wrapper .j-team:nth-child(even){padding-left:14px;border-left:1px solid var(--border);}
+  #joinus-wrapper .j-voices{grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @media (max-width:760px){
-  #joinus-wrapper .j-voices{grid-template-columns:1fr;}
-  #joinus-wrapper .j-locs{grid-template-columns:1fr;}
-  #joinus-wrapper .j-slot{justify-content:center;text-align:center;}
-  #joinus-wrapper .j-slot-time{text-align:center;}
+  #joinus-wrapper .j-hero-media{width:100%;clip-path:none;opacity:.3;}
+  #joinus-wrapper .j-hero-media::after{background:linear-gradient(180deg,rgba(12,12,14,.4),var(--black));}
+  #joinus-wrapper .j-teams{grid-template-columns:1fr;}
+  #joinus-wrapper .j-team:nth-child(even){padding-left:0;border-left:0;}
+  #joinus-wrapper .j-strip{grid-template-columns:repeat(2,minmax(0,1fr));}
+  #joinus-wrapper .j-voices,#joinus-wrapper .j-flow,#joinus-wrapper .j-locs{grid-template-columns:1fr;}
+  #joinus-wrapper .j-btn-xl{width:100%;}
 }
-@media (prefers-reduced-motion:reduce){
-  #joinus-wrapper.j-js .j-reveal,#joinus-wrapper.j-js .j-machine img{opacity:1;transform:none;transition:none;}
-}`;
+@media (prefers-reduced-motion:reduce){#joinus-wrapper.j-js .j-reveal{opacity:1;transform:none;transition:none;}}`;
 
   function build() {
     var mount = document.getElementById("joinus-root") || document.getElementById("joinus-wrapper");
@@ -297,12 +305,11 @@ html,body{overflow-x:hidden;max-width:100%;}
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var reveals = root.querySelectorAll(".j-reveal");
     root.classList.add("j-js");
-    // カスケード表示
     if (!reduce) {
       reveals.forEach(function (el) {
         var i = 0, s = el.previousElementSibling;
         while (s) { if (s.classList && s.classList.contains("j-reveal")) i++; s = s.previousElementSibling; }
-        if (i) el.style.transitionDelay = Math.min(i * 0.09, 0.36) + "s";
+        if (i) el.style.transitionDelay = Math.min(i * 0.08, 0.32) + "s";
       });
     }
     var showAll = function () { reveals.forEach(function (el) { el.classList.add("j-in"); }); };
@@ -318,13 +325,6 @@ html,body{overflow-x:hidden;max-width:100%;}
       showAll();
     }
 
-    // 画像フェードイン
-    root.querySelectorAll(".j-machine img").forEach(function (img) {
-      if (img.complete && img.naturalWidth) { img.classList.add("j-loaded"); }
-      else { img.addEventListener("load", function () { img.classList.add("j-loaded"); }); img.addEventListener("error", function () { img.classList.add("j-loaded"); }); }
-    });
-
-    // アンカーの滑らかスクロール
     root.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener("click", function (e) {
         var id = a.getAttribute("href");

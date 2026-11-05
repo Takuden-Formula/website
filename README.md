@@ -22,6 +22,7 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `sponsors/sponsors.js` | **「Sponsors」ページ本体**。`#sponsors-root` に描画。企業は `SPONSORS` 配列（50音順）、ロゴは `sponsors/logos/` |
 | `history/history.js` | **「History」ページ本体（沿革）**。`#history-root` に描画。出来事は `TIMELINE` 配列 |
 | `about/about.js` | **「About us」ページ本体**。`#about-root` に描画。文面は `ABOUT` オブジェクト |
+| `gallery/gallery.js` | **「Gallery」ページ本体**。`#gallery-root` に描画。新しい写真は `photos/` に置いて `NEW` に足す。年ごとの写真は `YEARS`（Jimdo に上げた画像の URL）。Jimdo に直接置いた旧ギャラリーは消さずに、表示時に隠す |
 | `calendar/calendar.js` | **活動カレンダー**（ホームの最新情報の下）。`#calendar-root` に描画。ホームの `takuden.js` が読み込む。定例活動は `WEEKLY`（休みは `skip`）、単発の予定は `EVENTS` に1件ずつ足す |
 | `viewer/` | トップ・About us に埋め込む **3Dビューアー**（2027 車両フレーム V4＋足回り、`frame-v4.glb` Draco 圧縮 約0.5MB） |
 | `brand/` | **チームロゴ**（2026-10-16 制定）。`logo.png`（白地用）・`logo-white.png`（黒地用）・`mark*.png`（記号のみ）。元データは Teams `05_広報/ロゴ/チームロゴ.jpg` から背景を透過して作成 |
@@ -88,6 +89,15 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 <div id="<名前>-root"></div>
 <script>
 (function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/<名前>/<名前>.js?v='+Date.now();document.head.appendChild(s);})();
+</script>
+```
+
+## Jimdoに貼るコード（Gallery ページの一番上の HTML ブロック）
+
+```html
+<div id="gallery-root"></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://takuden-formula.github.io/website/gallery/gallery.js?v='+Date.now();document.head.appendChild(s);})();
 </script>
 ```
 

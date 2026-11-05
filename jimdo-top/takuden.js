@@ -168,7 +168,7 @@
         <li class="tk-m"><a href="${BASE}/photos/rc-car.jpg" data-cap="高尾祭2026｜自作ラジコンの操作体験"><img loading="lazy" decoding="async" src="${BASE}/photos/rc-car.jpg" alt="高尾祭2026｜自作ラジコンの操作体験" width="1200" height="1600"><span>高尾祭2026｜自作ラジコンの操作体験</span></a></li>
         <li class="tk-m"><a href="${BASE}/photos/breadboard.jpg" data-cap="新人教育｜マイコンでモーターを動かす入門"><img loading="lazy" decoding="async" src="${BASE}/photos/breadboard.jpg" alt="新人教育｜マイコンでモーターを動かす入門" width="1600" height="1200"><span>新人教育｜マイコンでモーターを動かす入門</span></a></li>
         <li class="tk-m"><a href="${BASE}/photos/exhibit.jpg" data-cap="紅陵祭2026｜フレーム模型と部品の展示"><img loading="lazy" decoding="async" src="${BASE}/photos/exhibit.jpg" alt="紅陵祭2026｜フレーム模型と部品の展示" width="1477" height="1108"><span>紅陵祭2026｜フレーム模型と部品の展示</span></a></li>
-        <li class="tk-m"><a href="${BASE}/photos/tensile.jpg" data-cap="材料試験機での引張試験"><img loading="lazy" decoding="async" src="${BASE}/photos/tensile.jpg" alt="材料試験機での引張試験" width="1600" height="1200"><span>材料試験機での引張試験</span></a></li>
+        <li class="tk-m"><a href="${BASE}/photos/kart-54.jpg" data-cap="学内でのEVカート走行（2026年）"><img loading="lazy" decoding="async" src="${BASE}/photos/kart-54.jpg" alt="学内でのEVカート走行（2026年）" width="1600" height="1201"><span>学内でのEVカート走行（2026年）</span></a></li>
       </ul>
     </div>
     <dialog class="tk-lb" id="tk-lb" aria-label="写真の拡大表示">
