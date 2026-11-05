@@ -1,5 +1,5 @@
 /* ============================================================
-   TAKUDEN — What's FSAEJ?（学生フォーミュラ紹介ページ）本体 [v3 洗練＋活動カレンダー]
+   TAKUDEN — What's FSAEJ?（学生フォーミュラ紹介ページ）本体 [v3 洗練。活動カレンダーはホームへ移設 → calendar/calendar.js]
    GitHub Pages 配信・Jimdoローダーが読み込む単一ソース。
    Jimdo側:
      <div id="fsaej-root"></div>
@@ -12,26 +12,6 @@
 (function () {
   "use strict";
 
-  /* ------------------------------------------------------------
-     活動カレンダーの予定（ここに足すだけでカレンダーに出る）
-     1件の書き方:
-       { date: "2026-11-12",          // 必須 YYYY-MM-DD
-         end:  "2026-11-13",          // 任意 複数日のとき最終日
-         type: "activity",            // activity=活動日 / test=走行・試験 / event=イベント / other=その他
-         title: "定例活動",            // 必須
-         time: "16:30〜19:00",        // 任意
-         place: "学生交流会館 422",    // 任意
-         note: "" }                   // 任意
-     ------------------------------------------------------------ */
-  var EVENTS = [];
-
-  var TYPES = {
-    activity: { label: "活動日", color: "#C2410C" },
-    test:     { label: "走行・試験", color: "#2563EB" },
-    event:    { label: "イベント", color: "#15803D" },
-    other:    { label: "その他", color: "#64748B" }
-  };
-
   var ICON = {
     doc:    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>',
     flag:   '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
@@ -40,9 +20,6 @@
     shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>',
     battery:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 11v2M7 10v4M11 10v4"/></svg>',
     scope:  '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6M8 11h6"/></svg>',
-    left:   '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>',
-    right:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>',
-    cal:    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>'
   };
 
   var HTML = `
@@ -156,31 +133,6 @@
         <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.shield}</div><div><h4>安全設計</h4><p>絶縁監視装置（IMD）や遮断回路を備え、電池の監視装置（AMS）は自作。異常時には高電圧を確実に遮断する多重の安全設計です。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.battery}</div><div><h4>エネルギーマネジメント</h4><p>BMSでセルの電圧・温度を常時監視。限られた電力で最大の性能を引き出します。</p></div></div>
         <div class="f-feature f-reveal"><div class="f-icon f-icon-dark">${ICON.scope}</div><div><h4>最先端基準への対応</h4><p>年々更新される安全基準に対応。産業界と同等の高い水準で開発を進めています。</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 活動カレンダー ===== -->
-  <section class="f-section" id="fsaej-calendar">
-    <div class="f-wrap">
-      <div class="f-head f-reveal"><span class="f-num">05</span><span class="f-eyebrow-ink">Schedule</span><h2 class="f-h2">活動カレンダー</h2>
-        <p class="f-lead">活動日・走行試験・イベントの予定をお知らせします。</p></div>
-      <div class="f-cal f-reveal">
-        <div class="f-cal-card">
-          <div class="f-cal-bar">
-            <button type="button" class="f-cal-nav" data-cal="prev" aria-label="前の月">${ICON.left}</button>
-            <h3 class="f-cal-title" aria-live="polite"></h3>
-            <button type="button" class="f-cal-nav" data-cal="next" aria-label="次の月">${ICON.right}</button>
-            <button type="button" class="f-cal-today" data-cal="today">今月</button>
-          </div>
-          <div class="f-cal-week" aria-hidden="true"><span class="f-sun">日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="f-sat">土</span></div>
-          <div class="f-cal-grid"></div>
-          <div class="f-cal-legend"></div>
-        </div>
-        <aside class="f-cal-side">
-          <h3 class="f-cal-side-title"></h3>
-          <ul class="f-cal-list"></ul>
-        </aside>
       </div>
     </div>
   </section>
@@ -304,50 +256,6 @@ html,body{overflow-x:hidden;max-width:100%;}
 #fsaej-wrapper .f-feature h4{font-size:clamp(18.4px,1.8vw,21.6px);font-weight:800;margin-bottom:6px;color:#fff;}
 #fsaej-wrapper .f-feature p{font-size:clamp(15.7px,1.3vw,16.8px);color:rgba(255,255,255,.7);line-height:1.9;}
 
-/* calendar */
-#fsaej-wrapper .f-cal{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;margin-top:clamp(32px,5vw,52px);align-items:start;}
-#fsaej-wrapper .f-cal-card,#fsaej-wrapper .f-cal-side{background:#fff;border:1px solid var(--f-border);border-radius:var(--f-radius);padding:clamp(18px,2.6vw,28px);}
-#fsaej-wrapper .f-cal-bar{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
-#fsaej-wrapper .f-cal-title{flex:1;text-align:center;font-size:clamp(18.4px,1.8vw,21.6px);font-weight:800;font-variant-numeric:tabular-nums;order:2;}
-#fsaej-wrapper .f-cal-nav[data-cal=prev]{order:1;}
-#fsaej-wrapper .f-cal-nav[data-cal=next]{order:3;}
-#fsaej-wrapper .f-cal-today{order:4;}
-#fsaej-wrapper .f-cal-nav,#fsaej-wrapper .f-cal-today{font:inherit;cursor:pointer;height:36px;border:1px solid var(--f-border);background:#fff;color:var(--f-ink);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;}
-#fsaej-wrapper .f-cal-nav{width:36px;padding:0;}
-#fsaej-wrapper .f-cal-nav svg{width:18px;height:18px;}
-#fsaej-wrapper .f-cal-today{padding:0 14px;font-size:13.6px;font-weight:700;}
-#fsaej-wrapper .f-cal-nav:hover,#fsaej-wrapper .f-cal-today:hover{border-color:var(--f-ink);}
-#fsaej-wrapper .f-cal-week,#fsaej-wrapper .f-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));}
-#fsaej-wrapper .f-cal-week span{text-align:center;font-size:12px;font-weight:700;color:var(--f-mute);padding-bottom:8px;letter-spacing:.08em;}
-#fsaej-wrapper .f-sun{color:#c2410c !important;}
-#fsaej-wrapper .f-sat{color:#2563eb !important;}
-#fsaej-wrapper .f-cal-grid{border-top:1px solid var(--f-border);border-left:1px solid var(--f-border);}
-#fsaej-wrapper .f-day{font:inherit;position:relative;min-height:clamp(52px,7vw,84px);padding:6px 6px 8px;border:0;border-right:1px solid var(--f-border);border-bottom:1px solid var(--f-border);background:#fff;text-align:left;color:var(--f-ink);display:flex;flex-direction:column;gap:4px;cursor:default;min-width:0;}
-#fsaej-wrapper .f-day.f-out{background:#fafaf9;color:#c4c6ca;}
-#fsaej-wrapper .f-day.f-has{cursor:pointer;}
-#fsaej-wrapper .f-day.f-has:hover{background:#fff7f0;}
-#fsaej-wrapper .f-day.f-sel{box-shadow:inset 0 0 0 2px var(--f-ink);}
-#fsaej-wrapper .f-day:focus-visible{outline:2px solid var(--f-orange);outline-offset:-2px;}
-#fsaej-wrapper .f-d{font-size:13.6px;font-weight:700;line-height:1;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font-variant-numeric:tabular-nums;}
-#fsaej-wrapper .f-day.f-today .f-d{background:var(--f-orange-ink);color:#fff;}
-#fsaej-wrapper .f-chips{display:flex;flex-direction:column;gap:2px;min-width:0;}
-#fsaej-wrapper .f-chip{font-size:10.9px;font-weight:700;line-height:1.35;padding:1px 6px;border-radius:4px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-#fsaej-wrapper .f-more{font-size:10.9px;font-weight:700;color:var(--f-mute);}
-#fsaej-wrapper .f-cal-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:12.8px;color:var(--f-text);}
-#fsaej-wrapper .f-cal-legend span{display:inline-flex;align-items:center;gap:6px;}
-#fsaej-wrapper .f-cal-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;}
-#fsaej-wrapper .f-cal-side-title{font-size:16px;font-weight:800;padding-bottom:12px;border-bottom:1px solid var(--f-ink);}
-#fsaej-wrapper .f-cal-list li{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--f-border);}
-#fsaej-wrapper .f-cal-list li:last-child{border-bottom:0;}
-#fsaej-wrapper .f-li-date{width:52px;text-align:center;border-radius:10px;padding:6px 0;background:var(--f-bg-alt);line-height:1.15;}
-#fsaej-wrapper .f-li-date b{display:block;font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;}
-#fsaej-wrapper .f-li-date small{font-size:11.2px;font-weight:700;color:var(--f-mute);}
-#fsaej-wrapper .f-li-tag{display:inline-block;font-size:10.9px;font-weight:700;color:#fff;border-radius:4px;padding:1px 6px;margin-bottom:4px;}
-#fsaej-wrapper .f-li-title{display:block;font-weight:800;font-size:16px;line-height:1.45;}
-#fsaej-wrapper .f-li-meta{display:block;font-size:13.6px;color:var(--f-text);line-height:1.6;margin-top:2px;}
-#fsaej-wrapper .f-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:32px 8px 18px;color:var(--f-mute);font-size:14.7px;line-height:1.8;grid-template-columns:none !important;border:0 !important;}
-#fsaej-wrapper .f-empty svg{width:30px;height:30px;color:#c4c6ca;}
-
 /* cta */
 #fsaej-wrapper .f-cta{background:var(--f-orange);color:#fff;text-align:center;padding:clamp(64px,9vw,112px) 0;}
 #fsaej-wrapper .f-cta-title{font-size:clamp(28.8px,4vw,44.8px);font-weight:900;line-height:1.3;margin-bottom:14px;}
@@ -362,8 +270,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 
 /* responsive */
 @media (max-width:900px){
-  #fsaej-wrapper .f-cal{grid-template-columns:1fr;}
-  #fsaej-wrapper .f-timeline{grid-template-columns:1fr 1fr;row-gap:36px;}
+    #fsaej-wrapper .f-timeline{grid-template-columns:1fr 1fr;row-gap:36px;}
 }
 @media (max-width:820px){
   #fsaej-wrapper .f-panels{grid-template-columns:1fr;}
@@ -399,136 +306,7 @@ html,body{overflow-x:hidden;max-width:100%;}
     var root = document.getElementById("fsaej-wrapper");
     if (!root || root.__fsaejInit) return;
     root.__fsaejInit = true;
-    calendar(root);
     behavior(root);
-  }
-
-  /* ---------------- 活動カレンダー ---------------- */
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
-  function key(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
-  function parse(s) {
-    var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(String(s || "").trim());
-    if (!m) return null;
-    var d = new Date(+m[1], +m[2] - 1, +m[3]);
-    return d.getMonth() === +m[2] - 1 && d.getDate() === +m[3] ? d : null;
-  }
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-    });
-  }
-  var WD = ["日", "月", "火", "水", "木", "金", "土"];
-
-  function calendar(root) {
-    var box = root.querySelector("#fsaej-calendar");
-    if (!box) return;
-    var grid = box.querySelector(".f-cal-grid");
-    var title = box.querySelector(".f-cal-title");
-    var list = box.querySelector(".f-cal-list");
-    var sideTitle = box.querySelector(".f-cal-side-title");
-    var legend = box.querySelector(".f-cal-legend");
-
-    // 予定を正規化し、日付ごとに展開（複数日は最大62日まで）
-    var items = [], byDay = {};
-    EVENTS.forEach(function (e) {
-      var s = parse(e && e.date); if (!s || !e.title) return;
-      var en = parse(e.end) || s; if (en < s) en = s;
-      var t = TYPES[e.type] ? e.type : "other";
-      var it = { s: s, e: en, type: t, title: e.title, time: e.time, place: e.place, note: e.note };
-      items.push(it);
-      for (var d = new Date(s), n = 0; d <= en && n < 62; d.setDate(d.getDate() + 1), n++) {
-        (byDay[key(d)] = byDay[key(d)] || []).push(it);
-      }
-    });
-    items.sort(function (a, b) { return a.s - b.s; });
-
-    legend.innerHTML = Object.keys(TYPES).map(function (k) {
-      return '<span><i style="background:' + TYPES[k].color + '"></i>' + TYPES[k].label + "</span>";
-    }).join("");
-
-    var today = new Date(); today.setHours(0, 0, 0, 0);
-    var view = new Date(today.getFullYear(), today.getMonth(), 1);
-    var selected = null;
-
-    function fmtRange(it) {
-      var a = (it.s.getMonth() + 1) + "/" + it.s.getDate() + "（" + WD[it.s.getDay()] + "）";
-      if (+it.e === +it.s) return a;
-      return a + " 〜 " + (it.e.getMonth() + 1) + "/" + it.e.getDate() + "（" + WD[it.e.getDay()] + "）";
-    }
-    function li(it) {
-      var c = TYPES[it.type];
-      var meta = [fmtRange(it), it.time, it.place].filter(Boolean).map(esc).join("　");
-      return '<li><span class="f-li-date"><b>' + it.s.getDate() + "</b><small>" + (it.s.getMonth() + 1) + "月・" + WD[it.s.getDay()] + "</small></span>" +
-        '<span><span class="f-li-tag" style="background:' + c.color + '">' + c.label + "</span>" +
-        '<span class="f-li-title">' + esc(it.title) + "</span>" +
-        '<span class="f-li-meta">' + meta + "</span>" +
-        (it.note ? '<span class="f-li-meta">' + esc(it.note) + "</span>" : "") + "</span></li>";
-    }
-    function empty(msg) {
-      return '<li class="f-empty">' + ICON.cal + "<span>" + msg + "</span></li>";
-    }
-
-    function renderSide() {
-      if (selected) {
-        var d = parse(selected), evs = byDay[selected] || [];
-        sideTitle.textContent = (d.getMonth() + 1) + "月" + d.getDate() + "日（" + WD[d.getDay()] + "）の予定";
-        list.innerHTML = evs.length ? evs.map(li).join("") : empty("この日の予定はありません。");
-        return;
-      }
-      var y = view.getFullYear(), m = view.getMonth();
-      var start = new Date(y, m, 1), end = new Date(y, m + 1, 0);
-      var isCur = y === today.getFullYear() && m === today.getMonth();
-      var from = isCur ? today : start;
-      var up = items.filter(function (it) { return it.e >= from && (isCur || it.s <= end); });
-      sideTitle.textContent = isCur ? "今後の予定" : (m + 1) + "月の予定";
-      list.innerHTML = up.length ? up.slice(0, 8).map(li).join("")
-        : empty("現在、公開している予定はありません。<br>決まり次第こちらでお知らせします。");
-    }
-
-    function render() {
-      var y = view.getFullYear(), m = view.getMonth();
-      title.textContent = y + "年 " + (m + 1) + "月";
-      var first = new Date(y, m, 1);
-      var cur = new Date(y, m, 1 - first.getDay());
-      var weeks = Math.ceil((first.getDay() + new Date(y, m + 1, 0).getDate()) / 7);
-      var html = "";
-      for (var i = 0; i < weeks * 7; i++, cur.setDate(cur.getDate() + 1)) {
-        var k = key(cur), evs = byDay[k] || [];
-        var cls = "f-day" + (cur.getMonth() !== m ? " f-out" : "") + (+cur === +today ? " f-today" : "") +
-          (evs.length ? " f-has" : "") + (k === selected ? " f-sel" : "");
-        var label = (cur.getMonth() + 1) + "月" + cur.getDate() + "日" + WD[cur.getDay()] + "曜日" +
-          (evs.length ? "、予定" + evs.length + "件" : "");
-        if (cur.getMonth() === m) cls += cur.getDay() === 0 ? " f-sun" : cur.getDay() === 6 ? " f-sat" : "";
-        var chips = evs.slice(0, 2).map(function (it) {
-          return '<span class="f-chip" style="background:' + TYPES[it.type].color + '">' + esc(it.title) + "</span>";
-        }).join("") + (evs.length > 2 ? '<span class="f-more">+' + (evs.length - 2) + "</span>" : "");
-        html += '<button type="button" class="' + cls + '" data-day="' + k + '" aria-label="' + label + '"' +
-          (evs.length ? ' aria-pressed="' + (k === selected) + '"' : ' tabindex="-1" aria-disabled="true"') + '><span class="f-d">' +
-          cur.getDate() + '</span><span class="f-chips">' + chips + "</span></button>";
-      }
-      grid.innerHTML = html;
-      renderSide();
-    }
-
-    box.addEventListener("click", function (ev) {
-      var b = ev.target.closest ? ev.target.closest("[data-cal],[data-day]") : null;
-      if (!b || !box.contains(b)) return;
-      var a = b.getAttribute("data-cal");
-      if (a === "prev") { view.setMonth(view.getMonth() - 1); selected = null; }
-      else if (a === "next") { view.setMonth(view.getMonth() + 1); selected = null; }
-      else if (a === "today") { today = new Date(); today.setHours(0, 0, 0, 0); view = new Date(today.getFullYear(), today.getMonth(), 1); selected = null; }
-      else {
-        var k = b.getAttribute("data-day");
-        if (!byDay[k]) return;
-        selected = selected === k ? null : k;
-        render();
-        var again = grid.querySelector('[data-day="' + k + '"]');
-        if (again) again.focus();
-        return;
-      }
-      render();
-    });
-    render();
   }
 
   /* ---------------- 演出 ---------------- */

@@ -9,15 +9,22 @@
 (function () {
   "use strict";
 
+  // 自分の配信元（GitHub Pages またはローカル確認）から calendar.js の場所を決める
+  var SELF = (document.currentScript && document.currentScript.src) || "";
+  var CAL_SRC = /\/jimdo-top\/takuden\.js/.test(SELF)
+    ? SELF.replace(/\/jimdo-top\/takuden\.js.*$/, "/calendar/calendar.js")
+    : "https://takuden-formula.github.io/website/calendar/calendar.js";
+
   /* ---------------- HTML（#takuden-root に描画） ---------------- */
   var HTML = `
 <div id="takuden-wrapper">
   <header class="tk-header" id="tk-header">
     <a href="#top" class="tk-logo">TAKU<span class="tk-accent">DEN</span></a>
     <nav class="tk-nav" id="tk-nav" aria-label="メインナビゲーション">
+      <a href="#about">About</a>
       <a href="#showcase">Machine</a>
-      <a href="#mission">Mission</a>
       <a href="#news">News</a>
+      <a href="#calendar">Calendar</a>
       <a href="#activities">Activities</a>
       <a href="#social">SNS</a>
       <a href="#contact">Contact</a>
@@ -29,6 +36,32 @@
   </header>
 
   <span id="top"></span>
+
+  <section id="about" class="tk-intro">
+    <div class="tk-wrap">
+      <div class="tk-reveal">
+        <h2 class="tk-label">About TAKUDEN</h2>
+        <h3 class="tk-display tk-intro-h">電気で走るフォーミュラカーを、<br><span class="tk-accent">学生の手で。</span></h3>
+        <p class="tk-intro-lead">拓殖大学電気自動車同好会（TAKUDEN FORMULA）は、八王子国際キャンパスを拠点に、電気で走るフォーミュラカーを自分たちで設計・製作しているチームです。<b>学生フォーミュラ日本大会2027（EVクラス）への初参戦</b>を目指し、企業の皆様のご支援をいただきながら活動しています。</p>
+      </div>
+      <ul class="tk-intro-facts tk-reveal">
+        <li><b>1994</b><span>活動開始</span></li>
+        <li><b>約15名</b><span>部員</span></li>
+        <li><b>水・金</b><span>定例活動 4・5限</span></li>
+        <li><b>2027.08</b><span>大会初参戦が目標</span></li>
+      </ul>
+      <ol class="tk-intro-do">
+        <li class="tk-reveal"><span class="tk-intro-num">01</span><h4>EVレーシングカーをつくる</h4><p>譲り受けたフレームをもとに、足回りの設計・溶接・加工、高電圧回路、電池の監視、車両の制御プログラムまで自分たちで取り組んでいます。モーター・インバータと電池は企業様からお借りしています。</p></li>
+        <li class="tk-reveal"><span class="tk-intro-num">02</span><h4>大会・レースに出る</h4><p>学生フォーミュラ日本大会への参戦準備に加え、電気カートの耐久レース ERK Cup にも参加しています。</p></li>
+        <li class="tk-reveal"><span class="tk-intro-num">03</span><h4>伝える・広げる</h4><p>文化祭でのラジコン体験や展示、活動報告書、SNSで、EVとものづくりの楽しさを発信しています。</p></li>
+      </ol>
+      <div class="tk-intro-links tk-reveal">
+        <a href="https://takuden.jimdofree.com/what-s-fsaej/">学生フォーミュラとは <span aria-hidden="true">→</span></a>
+        <a href="https://takuden.jimdofree.com/what-s-fsaej/about-us/">チームについて <span aria-hidden="true">→</span></a>
+        <a href="https://takuden.jimdofree.com/join-us/" class="tk-intro-join">部員募集・見学 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
 
   <section id="showcase" class="tk-showcase">
     <div class="tk-wrap">
@@ -123,6 +156,10 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <section id="calendar" class="tk-calendar">
+    <div id="calendar-root"></div>
   </section>
 
   <section id="activities" class="tk-activities">
@@ -271,7 +308,30 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-cta:hover,#takuden-wrapper .tk-cta:focus-visible{background:var(--tk-ink);color:#fff;border-color:var(--tk-ink);}
 #takuden-wrapper .tk-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;}
 #takuden-wrapper .tk-burger span{display:block;width:26px;height:2px;background:var(--tk-ink);margin:5px 0;transition:.3s;}
-#takuden-wrapper .tk-showcase{padding:clamp(110px,16vw,190px) 0 clamp(50px,8vw,90px);text-align:center;}
+#takuden-wrapper .tk-intro{padding:clamp(110px,15vw,180px) 0 clamp(60px,9vw,110px);background-image:radial-gradient(circle at 1px 1px,rgba(15,23,42,.06) 1px,transparent 0);background-size:38px 38px;}
+#takuden-wrapper .tk-intro .tk-wrap{max-width:1100px;}
+#takuden-wrapper .tk-intro .tk-label,#takuden-wrapper .tk-intro-h{text-align:center;}
+#takuden-wrapper .tk-intro-h{font-size:clamp(3rem,7vw,6.4rem);margin-top:16px;}
+#takuden-wrapper .tk-intro-lead{margin:clamp(20px,3vw,30px) auto 0;max-width:760px;text-align:center;color:var(--tk-slate);font-size:clamp(1.5rem,1.6vw,1.75rem);line-height:1.95;}
+#takuden-wrapper .tk-intro-lead b{color:var(--tk-ink);font-weight:900;}
+#takuden-wrapper .tk-intro-facts{list-style:none;margin:clamp(32px,5vw,52px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--tk-ink);border-bottom:1px solid var(--tk-border);}
+#takuden-wrapper .tk-intro-facts li{padding:18px 16px 18px 0;}
+#takuden-wrapper .tk-intro-facts li+li{padding-left:18px;border-left:1px solid var(--tk-border);}
+#takuden-wrapper .tk-intro-facts b{display:block;font-size:clamp(2.2rem,3.4vw,3.2rem);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:1.1;color:var(--tk-ink);}
+#takuden-wrapper .tk-intro-facts span{display:block;margin-top:4px;font-size:1.25rem;font-weight:700;color:var(--tk-slate-soft);letter-spacing:.06em;}
+#takuden-wrapper .tk-intro-do{list-style:none;margin:clamp(36px,5vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+#takuden-wrapper .tk-intro-do li{background:#fff;border:1px solid var(--tk-border);border-radius:20px;padding:clamp(22px,2.6vw,30px);}
+#takuden-wrapper .tk-intro-num{display:block;font-size:1.2rem;font-weight:900;letter-spacing:.2em;color:var(--tk-orange);}
+#takuden-wrapper .tk-intro-do h4{margin:8px 0 8px;font-size:clamp(1.8rem,2vw,2.1rem);font-weight:900;line-height:1.4;color:var(--tk-ink);}
+#takuden-wrapper .tk-intro-do p{color:var(--tk-slate);font-size:1.45rem;line-height:1.85;}
+#takuden-wrapper .tk-intro-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(28px,4vw,40px);}
+#takuden-wrapper .tk-intro-links a{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:1.5px solid rgba(15,23,42,.15);border-radius:999px;font-size:1.4rem;font-weight:800;color:var(--tk-ink);background:#fff;transition:.25s;}
+#takuden-wrapper .tk-intro-links a:hover{border-color:var(--tk-ink);}
+#takuden-wrapper .tk-intro-links a.tk-intro-join{background:var(--tk-orange);border-color:var(--tk-orange);color:#111;}
+#takuden-wrapper .tk-intro-links a.tk-intro-join:hover{background:var(--tk-ink);border-color:var(--tk-ink);color:#fff;}
+#takuden-wrapper .tk-calendar{padding:clamp(60px,9vw,110px) 0;background:var(--tk-bg-alt);border-top:1px solid var(--tk-border);}
+#takuden-wrapper .tk-calendar:empty,#takuden-wrapper #calendar-root:empty{min-height:0;}
+#takuden-wrapper .tk-showcase{padding:clamp(60px,9vw,110px) 0 clamp(50px,8vw,90px);text-align:center;border-top:1px solid var(--tk-border);}
 #takuden-wrapper .tk-showcase-h{font-size:clamp(2.1rem,6vw,4.4rem);margin:16px auto 0;max-width:18ch;}
 #takuden-wrapper .tk-showcase-sub{margin-top:14px;color:var(--tk-slate);font-size:clamp(.95rem,1.4vw,1.05rem);line-height:1.8;}
 #takuden-wrapper .tk-viewer{position:relative;width:100%;max-width:1000px;aspect-ratio:16/10;margin:clamp(28px,4vw,48px) auto 0;border-radius:calc(var(--tk-radius) - .6rem);overflow:hidden;border:3px solid var(--tk-border);box-shadow:0 18px 44px rgba(15,23,42,.16);background:#eef1f4;-webkit-overflow-scrolling:touch;}
@@ -359,6 +419,10 @@ html,body{overflow-x:hidden;max-width:100%;}
   #takuden-wrapper .tk-nav{display:none;}
   #takuden-wrapper .tk-burger{display:block;}
   #takuden-wrapper .tk-mission-grid{grid-template-columns:1fr;}
+  #takuden-wrapper .tk-intro-do{grid-template-columns:1fr;}
+  #takuden-wrapper .tk-intro-facts{grid-template-columns:1fr 1fr;}
+  #takuden-wrapper .tk-intro-facts li:nth-child(3){padding-left:0;border-left:0;}
+  #takuden-wrapper .tk-intro-facts li:nth-child(n+3){border-top:1px solid var(--tk-border);}
   #takuden-wrapper .tk-act-row{grid-template-columns:1fr;}
   #takuden-wrapper .tk-act-row.tk-flip .tk-act-text,#takuden-wrapper .tk-act-row.tk-flip .tk-act-media,#takuden-wrapper .tk-act-row .tk-act-media{order:0;}
   #takuden-wrapper .tk-act-media{max-width:640px;margin:0 auto;}
@@ -408,6 +472,14 @@ html,body{overflow-x:hidden;max-width:100%;}
       po.observe(powrMount);
     } else {
       loadPowr();
+    }
+
+    // 活動カレンダー（calendar/calendar.js）を読み込む。このファイルと同じ配信元から取る
+    if (root.querySelector("#calendar-root") && !document.querySelector("script[data-tkcal]")) {
+      var cs = document.createElement("script");
+      cs.setAttribute("data-tkcal", "1");
+      cs.src = CAL_SRC + "?v=" + Date.now();
+      document.head.appendChild(cs);
     }
 
     behavior(root);

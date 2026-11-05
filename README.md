@@ -22,6 +22,7 @@ Jimdoには小さな「ローダー」だけを貼り、そこからPagesの `ta
 | `sponsors/sponsors.js` | **「Sponsors」ページ本体**。`#sponsors-root` に描画。企業は `SPONSORS` 配列（50音順）、ロゴは `sponsors/logos/` |
 | `history/history.js` | **「History」ページ本体（沿革）**。`#history-root` に描画。出来事は `TIMELINE` 配列 |
 | `about/about.js` | **「About us」ページ本体**。`#about-root` に描画。文面は `ABOUT` オブジェクト |
+| `calendar/calendar.js` | **活動カレンダー**（ホームの最新情報の下）。`#calendar-root` に描画。ホームの `takuden.js` が読み込む。定例活動は `WEEKLY`（休みは `skip`）、単発の予定は `EVENTS` に1件ずつ足す |
 | `viewer/` | トップ・About us に埋め込む **3Dビューアー**（2027 車両フレーム V4＋足回り、`frame-v4.glb` Draco 圧縮 約0.5MB） |
 | `report/files/` | 報告書PDF `report-NN.pdf` と表紙サムネ `cover-NN.jpg`（1ページ目・幅640px） |
 
