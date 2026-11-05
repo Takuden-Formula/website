@@ -448,6 +448,9 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-top-sub{margin-top:18px;font-size:14px;font-weight:700;letter-spacing:.3em;color:rgba(255,255,255,.6);}
 #takuden-wrapper .tk-top-h{margin:clamp(28px,4vw,44px) 0 0;padding:0;font-size:clamp(25px,4.4vw,58px);font-weight:900;font-style:italic;line-height:1.25;letter-spacing:-.01em;color:#fff;}
 #takuden-wrapper .tk-top-h em{font-style:italic;color:var(--tk-orange);}
+#takuden-wrapper h1.tk-top-h,#takuden-wrapper h1.tk-top-h em{text-align:left!important;font-family:"Noto Sans JP",system-ui,sans-serif!important;font-style:italic!important;font-weight:900!important;text-transform:none!important;letter-spacing:-.01em!important;}
+#takuden-wrapper h1.tk-top-h{color:#fff!important;line-height:1.25!important;}
+#takuden-wrapper h1.tk-top-h em{color:var(--tk-orange)!important;}
 #takuden-wrapper .tk-count{display:inline-grid;grid-template-columns:auto auto;align-items:end;column-gap:22px;row-gap:4px;margin-top:clamp(30px,4vw,48px);padding:16px 26px 14px 0;border-top:1px solid rgba(255,255,255,.18);}
 #takuden-wrapper .tk-count-label{grid-column:1/-1;font-size:13px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.65);}
 #takuden-wrapper .tk-count-num{display:flex;align-items:baseline;gap:10px;}
