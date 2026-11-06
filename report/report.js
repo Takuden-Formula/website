@@ -9,6 +9,7 @@
    新しい号を載せるとき:
      1) report/files/ に report-NN.pdf と cover-NN.jpg（1ページ目, 幅640px）を置く
      2) 下の REPORTS の先頭に1件足す
+   紹介スライドを差し替えるとき: files/slides-intro.pdf と cover-slides-intro.jpg を置き換え、SLIDES を直す
    ============================================================ */
 (function () {
   "use strict";
@@ -17,6 +18,11 @@
 
   // 新しい号ほど上に
   var REPORTS = [
+    {
+      no: 6, period: "2026年8〜10月", file: "06",
+      title: "モーターの無負荷試験と紅陵祭",
+      points: ["デンソー様のモーター・インバータで無負荷試験に成功", "学生フォーミュラ日本大会2026に学生スタッフとして参加", "ERK Cup 第2戦・第3戦に参加（第2戦 L1クラス3位）", "紅陵祭2026での体験企画と新しいチームロゴの制定"]
+    },
     {
       no: 5, period: "2026年5〜8月", file: "05",
       title: "新入部員の技術教育とインバータのCAN通信",
@@ -43,6 +49,33 @@
       points: ["高尾祭でたこ焼き販売・バイク展示", "トヨタ東京自動車大学校様よりフォーミュラシャシーをいただく", "関東支部 EV 模擬車検会に参加"]
     }
   ];
+
+  // 同好会紹介スライド（PDF）
+  var SLIDES = {
+    file: "slides-intro", date: "2026年11月", pages: 18,
+    title: "拓殖大学 電気自動車同好会紹介",
+    sub: "学生フォーミュラ日本大会2027 初参戦に向けて",
+    points: ["学生フォーミュラとは・チームの体制", "2027年車両のコンセプトとパワートレイン", "ロードマップと、いま取り組んでいること", "活動・広報・ご支援企業の皆様"]
+  };
+
+  function slidesCard(d) {
+    var pdf = BASE + d.file + ".pdf";
+    var img = BASE + "cover-" + d.file + ".jpg";
+    var lis = d.points.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("");
+    return '<article class="r-card r-slides r-reveal">' +
+      '<a class="r-cover" href="' + pdf + '" target="_blank" rel="noopener" aria-label="同好会紹介スライドのPDFを開く（新しいタブ）">' +
+        '<img loading="lazy" decoding="async" src="' + img + '" alt="同好会紹介スライドの表紙">' +
+      "</a>" +
+      '<div class="r-body">' +
+        '<p class="r-meta"><span class="r-no">SLIDES</span></p>' +
+        '<h4 class="r-title">' + esc(d.title) + "</h4>" +
+        '<p class="r-period">' + esc(d.date) + "・全" + d.pages + "枚</p>" +
+        '<p class="r-sub">' + esc(d.sub) + "</p>" +
+        '<ul class="r-points">' + lis + "</ul>" +
+        '<a class="r-btn" href="' + pdf + '" target="_blank" rel="noopener">PDFで見る<span aria-hidden="true">→</span></a>' +
+      "</div>" +
+    "</article>";
+  }
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
@@ -77,6 +110,16 @@
       '<div class="r-list">' + REPORTS.map(card).join("") + "</div>" +
     "</div>" +
   "</section>" +
+  '<section class="r-section r-alt-bg">' +
+    '<div class="r-wrap">' +
+      '<div class="r-head r-reveal">' +
+        '<p class="r-label">Introduction Slides</p>' +
+        '<h3 class="r-h">紹介スライド</h3>' +
+        '<p class="r-lead">企業の皆様へのご説明に使っている、当会の紹介スライドです。<br class="r-br">表紙を押すと PDF でご覧いただけます。</p>' +
+      "</div>" +
+      '<div class="r-list">' + slidesCard(SLIDES) + "</div>" +
+    "</div>" +
+  "</section>" +
 "</div>";
 
   var CSS = `
@@ -96,6 +139,9 @@ html,body{overflow-x:hidden;max-width:100%;}
 #report-wrapper .r-card{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:clamp(16px,2.4vw,26px);align-items:start;padding:clamp(18px,2.6vw,28px);border:1px solid var(--r-border);border-radius:24px;background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.05);transition:border-color .35s,box-shadow .35s,transform .35s;}
 #report-wrapper .r-card:hover{border-color:var(--r-orange);box-shadow:0 18px 40px rgba(15,23,42,.1);transform:translateY(-4px);}
 #report-wrapper .r-latest{grid-column:1/-1;grid-template-columns:minmax(0,260px) minmax(0,1fr);border-width:2px;border-color:var(--r-orange);background:linear-gradient(135deg,#fff 60%,#fff6ef);}
+#report-wrapper .r-alt-bg{background:var(--r-alt);}
+#report-wrapper .r-slides{grid-column:1/-1;grid-template-columns:minmax(0,420px) minmax(0,1fr);}
+#report-wrapper .r-slides .r-title{font-size:clamp(1.4rem,2.6vw,1.9rem);}
 #report-wrapper .r-cover{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--r-border);box-shadow:0 8px 20px rgba(15,23,42,.12);background:var(--r-alt);transition:transform .35s;}
 #report-wrapper .r-cover:hover{transform:scale(1.03);}
 #report-wrapper .r-cover img{width:100%;height:auto;}
@@ -120,10 +166,12 @@ html,body{overflow-x:hidden;max-width:100%;}
 @media (max-width:860px){
   #report-wrapper .r-list{grid-template-columns:1fr;}
   #report-wrapper .r-latest{grid-template-columns:minmax(0,150px) minmax(0,1fr);}
+  #report-wrapper .r-slides{grid-template-columns:1fr;}
 }
 @media (max-width:520px){
   #report-wrapper .r-card,#report-wrapper .r-latest{grid-template-columns:1fr;}
   #report-wrapper .r-cover{max-width:220px;}
+  #report-wrapper .r-slides .r-cover{max-width:100%;}
   #report-wrapper .r-br{display:none;}
 }
 @media (prefers-reduced-motion:reduce){#report-wrapper.r-js .r-reveal{opacity:1;transform:none;transition:none;}}`;
