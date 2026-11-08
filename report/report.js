@@ -52,14 +52,14 @@
 
   // 同好会紹介スライド（PDF）
   var SLIDES = {
-    file: "slides-intro", date: "2026年11月", pages: 18,
+    file: "slides-intro", date: "2026年11月", pages: 18, ver: "20261108",
     title: "拓殖大学 電気自動車同好会紹介",
     sub: "学生フォーミュラ日本大会2027 初参戦に向けて",
-    points: ["学生フォーミュラとは・チームの体制", "2027年車両のコンセプトとパワートレイン", "ロードマップと、いま取り組んでいること", "活動・広報・ご支援企業の皆様"]
+    points: ["学生フォーミュラとは・チームの体制", "2027年車両のコンセプトとパワートレイン", "ロードマップと、いま取り組んでいること", "活動・広報・ご支援企業の皆様とご支援のお願い"]
   };
 
   function slidesCard(d) {
-    var pdf = BASE + d.file + ".pdf";
+    var pdf = BASE + d.file + ".pdf" + (d.ver ? "?v=" + d.ver : "");
     var img = BASE + "cover-" + d.file + ".jpg";
     var lis = d.points.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("");
     return '<article class="r-card r-slides r-reveal">' +
