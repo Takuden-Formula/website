@@ -77,6 +77,7 @@
       <div class="tk-intro-links tk-reveal">
         <a href="https://takuden.jimdofree.com/what-s-fsaej/">学生フォーミュラとは <span aria-hidden="true">→</span></a>
         <a href="https://takuden.jimdofree.com/what-s-fsaej/about-us/">チームについて <span aria-hidden="true">→</span></a>
+        <a href="https://takuden-formula.github.io/website/report/files/report-06.pdf" target="_blank" rel="noopener" class="tk-intro-report" aria-label="最新の活動報告書（第6回）のPDFを開く（新しいタブ）">最新の活動報告書 <span aria-hidden="true">→</span></a><!-- 新しい号を出したら report-NN.pdf を差し替える -->
         <a href="https://takuden.jimdofree.com/join-us/" class="tk-intro-join">部員募集・見学 <span aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -156,6 +157,7 @@
         <li class="tk-m"><a href="${BASE}/photos/breadboard.jpg" data-cap="新人教育｜マイコンでモーターを動かす入門"><img loading="lazy" decoding="async" src="${BASE}/photos/breadboard.jpg" alt="新人教育｜マイコンでモーターを動かす入門" width="1600" height="1200"><span>新人教育｜マイコンでモーターを動かす入門</span></a></li>
         <li class="tk-m"><a href="${BASE}/photos/exhibit.jpg" data-cap="紅陵祭2026｜フレーム模型と部品の展示"><img loading="lazy" decoding="async" src="${BASE}/photos/exhibit.jpg" alt="紅陵祭2026｜フレーム模型と部品の展示" width="1477" height="1108"><span>紅陵祭2026｜フレーム模型と部品の展示</span></a></li>
         <li class="tk-m"><a href="${BASE}/photos/kart-54.jpg" data-cap="学内でのEVカート走行（2026年）"><img loading="lazy" decoding="async" src="${BASE}/photos/kart-54.jpg" alt="学内でのEVカート走行（2026年）" width="1600" height="1201"><span>学内でのEVカート走行（2026年）</span></a></li>
+        <li class="tk-m"><a href="${BASE}/photos/noload-test.jpg" data-cap="モーター・インバータの無負荷回転試験（2026年10月）"><img loading="lazy" decoding="async" src="${BASE}/photos/noload-test.jpg" alt="モーター・インバータの無負荷回転試験（2026年10月）" width="1300" height="860"><span>モーター・インバータの無負荷回転試験（2026年10月）</span></a></li>
       </ul>
     </div>
     <dialog class="tk-lb" id="tk-lb" aria-label="写真の拡大表示">
@@ -181,11 +183,10 @@
         <div class="tk-act-media"><div class="tk-slider">
           <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子1" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/iccc146649565aa42/version/1760520322/image.jpg"></div>
           <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子2" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=png/path/s526a7478a3a00671/image/i17bdb36bf0eb381b/version/1766899512/image.png"></div>
-          <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子3" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i2f87cd07f2480fc6/version/1766762591/image.jpg"></div>
-            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子4" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i7cf2a5f3ca546fd5/version/1786381229/image.jpg"></div>
-            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子5" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i5d6fe09d9f566fbb/version/1786381205/image.jpg"></div>
-            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子6" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=-180/path/s526a7478a3a00671/image/i0db620bf950fd607/version/1786381227/image.jpg"></div>
-            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子7" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=90/path/s526a7478a3a00671/image/ic5b575b5bf5fb15f/version/1786381229/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子3" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i7cf2a5f3ca546fd5/version/1786381229/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子4" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg/path/s526a7478a3a00671/image/i5d6fe09d9f566fbb/version/1786381205/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子5" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=-180/path/s526a7478a3a00671/image/i0db620bf950fd607/version/1786381227/image.jpg"></div>
+            <div class="tk-slide"><img loading="lazy" decoding="async" alt="フォーミュラ製作の様子6" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1600x1200:format=jpg:rotate=90/path/s526a7478a3a00671/image/ic5b575b5bf5fb15f/version/1786381229/image.jpg"></div>
         </div></div>
       </div>
 
@@ -348,6 +349,8 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-intro-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(28px,4vw,40px);}
 #takuden-wrapper .tk-intro-links a{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:1.5px solid rgba(15,23,42,.15);border-radius:999px;font-size:1.4rem;font-weight:800;color:var(--tk-ink);background:#fff;transition:.25s;}
 #takuden-wrapper .tk-intro-links a:hover{border-color:var(--tk-ink);}
+#takuden-wrapper .tk-intro-links a.tk-intro-report{border-color:var(--tk-orange);color:var(--tk-orange);}
+#takuden-wrapper .tk-intro-links a.tk-intro-report:hover{background:var(--tk-orange);color:#111;}
 #takuden-wrapper .tk-intro-links a.tk-intro-join{background:var(--tk-orange);border-color:var(--tk-orange);color:#111;}
 #takuden-wrapper .tk-intro-links a.tk-intro-join:hover{background:var(--tk-ink);border-color:var(--tk-ink);color:#fff;}
 #takuden-wrapper .tk-calendar{padding:clamp(60px,9vw,110px) 0;background:var(--tk-bg-alt);border-top:1px solid var(--tk-border);}
@@ -455,11 +458,11 @@ html,body{overflow-x:hidden;max-width:100%;}
 #takuden-wrapper .tk-photos .tk-wrap{max-width:1240px;}
 #takuden-wrapper .tk-photos-head{text-align:center;}
 #takuden-wrapper .tk-photos-h{font-size:clamp(32px,5.5vw,64px)!important;margin:14px 0 clamp(32px,5vw,56px);}
-#takuden-wrapper .tk-mosaic{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,17vw,230px);grid-template-areas:"b b w g" "b b w br" "e e r ex" "h h r t";gap:10px;}
+#takuden-wrapper .tk-mosaic{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,17vw,230px);grid-template-areas:"b b w g" "b b w br" "e e r ex" "d d r t" "d d h h";gap:10px;}
 #takuden-wrapper .tk-m{position:relative;overflow:hidden;background:#e9ebee;margin:0;padding:0;}
 #takuden-wrapper .tk-m:nth-child(1){grid-area:b;}#takuden-wrapper .tk-m:nth-child(2){grid-area:w;}#takuden-wrapper .tk-m:nth-child(3){grid-area:e;}
 #takuden-wrapper .tk-m:nth-child(4){grid-area:g;}#takuden-wrapper .tk-m:nth-child(5){grid-area:h;}#takuden-wrapper .tk-m:nth-child(6){grid-area:r;}
-#takuden-wrapper .tk-m:nth-child(7){grid-area:br;}#takuden-wrapper .tk-m:nth-child(8){grid-area:ex;}#takuden-wrapper .tk-m:nth-child(9){grid-area:t;}
+#takuden-wrapper .tk-m:nth-child(7){grid-area:br;}#takuden-wrapper .tk-m:nth-child(8){grid-area:ex;}#takuden-wrapper .tk-m:nth-child(9){grid-area:t;}#takuden-wrapper .tk-m:nth-child(10){grid-area:d;}#takuden-wrapper .tk-m:nth-child(10) img{object-position:85% 60%;}
 #takuden-wrapper .tk-m a{display:block;width:100%;height:100%;cursor:zoom-in;}
 #takuden-wrapper .tk-m img{width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1);}
 #takuden-wrapper .tk-m span{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:13px;font-weight:700;line-height:1.5;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));opacity:0;transform:translateY(8px);transition:.35s;}
@@ -487,7 +490,7 @@ html,body{overflow-x:hidden;max-width:100%;}
   #takuden-wrapper .tk-top-media::after{background:linear-gradient(180deg,rgba(12,12,14,.4),var(--tk-black));}
   #takuden-wrapper .tk-count{grid-template-columns:1fr;padding-right:0;}
   #takuden-wrapper .tk-count-date{padding-bottom:0;}
-  #takuden-wrapper .tk-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:42vw;grid-template-areas:"b b" "b b" "w g" "w br" "e e" "r ex" "r t" "h h";gap:6px;}
+  #takuden-wrapper .tk-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:42vw;grid-template-areas:"b b" "b b" "w g" "w br" "d d" "e e" "r ex" "r t" "h h";gap:6px;}
   #takuden-wrapper .tk-m span{opacity:1;transform:none;font-size:11px;padding:22px 10px 8px;}
   #takuden-wrapper .tk-header:not(.tk-scrolled) .tk-nav.tk-open a{color:var(--tk-ink);}
 }
